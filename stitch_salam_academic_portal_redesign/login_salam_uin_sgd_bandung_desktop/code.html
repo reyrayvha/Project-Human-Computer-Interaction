@@ -1,0 +1,176 @@
+<!DOCTYPE html><html lang="id"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masuk ke SALAM - UIN Sunan Gunung Djati Bandung</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#3F7A1F',
+              'primary-hover': '#2F6016',
+              'primary-tint': '#E6F0DC',
+              leaf: '#8CC43F',
+              'logo-green': '#588A2A',
+              ink: '#263235',
+              'ink-muted': '#55626A',
+              bg: '#F3F5F2',
+              card: '#FFFFFF',
+              border: '#DCE2DA',
+              danger: '#B3261E',
+              'danger-tint': '#FBE4E2',
+              info: '#1F5F8B',
+              'info-tint': '#E0EEF7'
+            }
+          },
+          fontFamily: {
+            sans: ['"Public Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-brand-bg text-brand-ink font-sans min-h-screen antialiased flex flex-col justify-between selection:bg-brand-primary-tint selection:text-brand-primary">
+
+  <!-- Main Container -->
+  <main class="flex-1 flex items-center justify-center p-6 lg:p-12">
+    <div class="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      
+      <!-- Left Column: Official Logo and Institution Tagline -->
+      <div class="lg:col-span-6 flex flex-col items-start pr-0 lg:pr-8">
+        <div class="mb-6">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWcgk1F_EGxcNuaQG5fWfNy7n9NLOHRSlMXmuQbyjZqb9XWLKhfUzc_JWtBCt3I4qHEtSqY8DUBdTvtdtayu-mOtZZkKZ4w1EfKwIMxkhA1ToK7ga73fMANDqDDk3f1qbHFkerM2NWsEdcn-D0wMjkukI5llj3yzj3QuzcwnSplYozu3VbrbI8YAvqH5h3VtzvCERANrTo45XOVVdyKbu-8sFVmHp7AMBgny0RlqwggM6JDxt6-5lC8RamIbNRvgxvyw" alt="SALAM UIN Sunan Gunung Djati Bandung" class="w-[360px] max-w-full h-auto object-contain block">
+        </div>
+        <p class="text-[17px] leading-relaxed text-brand-ink font-medium max-w-md">
+          Layanan akademik UIN Sunan Gunung Djati Bandung dalam satu tempat.
+        </p>
+        <div class="mt-8 pt-6 border-t border-brand-border/80 w-full max-w-md">
+          <div class="flex items-center gap-2.5 text-xs text-brand-ink-muted">
+            <svg class="w-4 h-4 text-brand-logo-green flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+            <span>Koneksi aman terenkripsi SSL ke server universitas</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Login Card & Help Links -->
+      <div class="lg:col-span-6 flex flex-col items-start lg:items-center">
+        <div class="w-full max-w-[400px]">
+          
+          <!-- White Card -->
+          <div class="bg-brand-card rounded-[10px] border border-brand-border p-7 shadow-none">
+            <h1 class="text-[24px] leading-[32px] font-semibold text-brand-ink mb-6">
+              Masuk ke SALAM
+            </h1>
+
+            <form onsubmit="return false;" class="space-y-4">
+              <!-- Username Field -->
+              <div>
+                <label for="username" class="block text-sm font-medium text-brand-ink mb-1.5">
+                  Username
+                </label>
+                <input type="text" id="username" name="username" value="1247050001" placeholder="Masukkan NIM atau NIP" class="w-full h-11 px-3.5 rounded-[6px] border border-brand-border bg-white text-brand-ink text-[15px] focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition-all placeholder:text-brand-ink-muted/60">
+                <p class="mt-1.5 text-xs text-brand-ink-muted">
+                  NIM untuk mahasiswa
+                </p>
+              </div>
+
+              <!-- Password Field -->
+              <div>
+                <label for="password" class="block text-sm font-medium text-brand-ink mb-1.5">
+                  Password
+                </label>
+                <div class="relative">
+                  <input type="password" id="password" name="password" placeholder="Masukkan password" class="w-full h-11 pl-3.5 pr-11 rounded-[6px] border border-brand-border bg-white text-brand-ink text-[15px] focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition-all placeholder:text-brand-ink-muted/60">
+                  <button type="button" aria-label="Tampilkan password" class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-brand-ink-muted hover:text-brand-ink transition-colors">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                    </svg>
+                  </button>
+                </div>
+                
+                <!-- Forgot Password Link -->
+                <div class="flex items-center justify-between mt-2">
+                  <span class="text-xs text-brand-ink-muted" id="caps-hint"></span>
+                  <a href="#" class="text-xs font-medium text-brand-primary hover:text-brand-primary-hover hover:underline ml-auto">
+                    Lupa password?
+                  </a>
+                </div>
+              </div>
+
+              <!-- Buttons Stack -->
+              <div class="pt-2 space-y-3">
+                <button type="submit" class="w-full h-11 bg-brand-primary hover:bg-brand-primary-hover text-white font-semibold text-[15px] rounded-[6px] flex items-center justify-center transition-colors cursor-pointer">
+                  Masuk
+                </button>
+
+                <button type="button" class="w-full h-11 bg-transparent hover:bg-brand-primary-tint/50 text-brand-primary font-semibold text-[15px] rounded-[6px] border border-brand-primary flex items-center justify-center transition-colors cursor-pointer">
+                  Masuk dengan SSO
+                </button>
+              </div>
+
+              <!-- Security Line -->
+              <div class="pt-3 border-t border-brand-border mt-4">
+                <p class="text-xs text-brand-ink-muted leading-relaxed text-center">
+                  Gunakan alamat resmi SALAM dan jangan bagikan password ke siapa pun.
+                </p>
+              </div>
+            </form>
+          </div>
+
+          <!-- Bantuan dan Dokumen Section -->
+          <div class="mt-6 pt-2">
+            <h2 class="text-xs font-semibold text-brand-ink-muted tracking-wide mb-2.5">
+              Bantuan dan dokumen
+            </h2>
+            <ul class="space-y-1.5 text-xs text-brand-ink">
+              <li>
+                <a href="#" class="text-brand-ink hover:text-brand-primary hover:underline transition-colors block py-0.5">
+                  Dosen masuk dengan akun SIP
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-brand-ink hover:text-brand-primary hover:underline transition-colors block py-0.5">
+                  Pedoman MBKM
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-brand-ink hover:text-brand-primary hover:underline transition-colors block py-0.5">
+                  Pedoman Akademik
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-brand-ink hover:text-brand-primary hover:underline transition-colors block py-0.5">
+                  Panduan Karya Tulis Ilmiah
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-brand-ink hover:text-brand-primary hover:underline transition-colors block py-0.5">
+                  Renstra UIN SGD Bandung 2024-2029
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Clean institutional footer -->
+  <footer class="py-4 px-6 border-t border-brand-border text-center text-xs text-brand-ink-muted bg-brand-bg">
+    <p>© 2026 UIN Sunan Gunung Djati Bandung. Sistem Administrasi Layanan Akademik.</p>
+  </footer>
+
+
+
+</body></html>

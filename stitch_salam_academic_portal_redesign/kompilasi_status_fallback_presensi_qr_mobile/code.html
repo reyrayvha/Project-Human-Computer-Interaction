@@ -1,0 +1,465 @@
+<!DOCTYPE html><html lang="id"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hasil Presensi &amp; Alur Scan QR - SALAM UIN SGD Bandung</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#3F7A1F',
+              hover: '#2F6016',
+              tint: '#E6F0DC',
+              leaf: '#8CC43F',
+            },
+            ink: {
+              DEFAULT: '#263235',
+              muted: '#55626A',
+            },
+            surface: {
+              bg: '#F3F5F2',
+              card: '#FFFFFF',
+              border: '#DCE2DA',
+            },
+            state: {
+              success: '#1F7A4D',
+              'success-tint': '#E1F2E9',
+              warning: '#A85F00',
+              'warning-tint': '#FDF0DA',
+              danger: '#B3261E',
+              'danger-tint': '#FBE4E2',
+              info: '#1F5F8B',
+              'info-tint': '#E0EEF7',
+            }
+          },
+          fontFamily: {
+            sans: ['Public Sans', 'system-ui', '-apple-system', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Public Sans', sans-serif;
+      background-color: #E5E8E4;
+      color: #263235;
+      -webkit-font-smoothing: antialiased;
+    }
+    .device-frame {
+      width: 390px;
+      height: 844px;
+      border-radius: 40px;
+      overflow: hidden;
+      box-shadow: 0 16px 36px -12px rgba(38, 50, 53, 0.22), 0 0 0 1px #DCE2DA;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      background-color: #F3F5F2;
+    }
+    .code-box {
+      width: 44px;
+      height: 52px;
+      border: 1.5px solid #DCE2DA;
+      border-radius: 8px;
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+      background: #FFFFFF;
+      color: #263235;
+      font-variant-numeric: tabular-nums;
+    }
+    .code-box:focus {
+      outline: none;
+      border-color: #3F7A1F;
+      box-shadow: 0 0 0 3px rgba(63, 122, 31, 0.15);
+    }
+  </style>
+</head>
+<body class="p-6 md:p-10 min-h-screen">
+
+  <div class="max-w-[1440px] mx-auto">
+    <!-- Header Rationale -->
+    <div class="mb-8">
+      <div class="inline-flex items-center space-x-2 px-3 py-1 bg-white border border-[#DCE2DA] rounded-full text-xs font-semibold text-[#3F7A1F] mb-2">
+        <svg class="w-3.5 h-3.5 text-[#3F7A1F]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+        <span>DESIGN.md Bagian 7.8: Spesifikasi Alur Pemindaian QR &amp; Penanganan Kegagalan (390 x 844 px)</span>
+      </div>
+      <h1 class="text-2xl md:text-3xl font-bold text-[#263235] tracking-tight">Kompilasi Status &amp; Fallback Presensi QR Mahasiswa</h1>
+      <p class="text-sm text-[#55626A] mt-1">Mengakomodasi temuan survei: izin kamera kontekstual, umpan balik seketika (berhasil, gagal, antrean offline), dan kode manual sebagai fallback utama.</p>
+    </div>
+
+    <!-- Responsive Grid of 6 Mobile Mockups -->
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
+
+      <!-- ================= FRAME 1: BOTTOM SHEET IZIN KAMERA ================= -->
+      <div class="flex flex-col items-center">
+        <div class="mb-3 text-center">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#55626A]">Pra-Scan: Bottom Sheet Izin</span>
+          <p class="text-xs text-[#55626A]">Penjelasan alasan sebelum dialog browser</p>
+        </div>
+        <div class="device-frame bg-[#0F1416] justify-between">
+          <!-- Dimmed viewfinder preview background -->
+          <div class="absolute inset-0 bg-black/60 z-0"></div>
+
+          <!-- Top bar -->
+          <div class="pt-4 px-6 flex justify-between items-center text-xs text-white/50 z-10">
+            <span>09:41</span>
+            <div class="w-4 h-2 border border-white/50 rounded-sm"></div>
+          </div>
+
+          <!-- Viewfinder stub behind modal -->
+          <div class="flex-1 flex flex-col items-center justify-center z-10 opacity-30">
+            <div class="w-48 h-48 border-2 border-white/30 rounded-xl"></div>
+          </div>
+
+          <!-- Bottom Sheet Modal: Izinkan akses kamera? -->
+          <div class="w-full bg-white rounded-t-[20px] p-6 z-20 text-[#263235] shadow-[0_-8px_24px_rgba(0,0,0,0.25)] border-t border-[#DCE2DA]">
+            <div class="w-12 h-1 bg-[#DCE2DA] rounded-full mx-auto mb-5"></div>
+            
+            <div class="w-12 h-12 rounded-full bg-[#E6F0DC] text-[#3F7A1F] flex items-center justify-center mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+
+            <h2 class="text-lg font-bold tracking-tight text-[#263235]">Izinkan akses kamera?</h2>
+            <p class="text-sm text-[#55626A] mt-2 leading-relaxed">
+              Kamera dipakai hanya untuk memindai QR absen. SALAM tidak merekam gambar atau mengunggah data foto Anda ke server.
+            </p>
+
+            <div class="mt-6 space-y-2.5">
+              <button class="w-full h-11 bg-[#3F7A1F] hover:bg-[#2F6016] active:bg-[#263235] text-white font-semibold text-sm rounded-[6px] transition-colors">
+                Izinkan kamera
+              </button>
+              <button class="w-full h-11 bg-white hover:bg-[#F3F5F2] border border-[#DCE2DA] text-[#263235] font-semibold text-sm rounded-[6px] transition-colors">
+                Batal
+              </button>
+            </div>
+            <div class="w-32 h-1 bg-[#263235]/20 rounded-full mx-auto mt-5"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= FRAME 2: STATUS A (SUCCESS) ================= -->
+      <div class="flex flex-col items-center">
+        <div class="mb-3 text-center">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#1F7A4D]">Status A: Hadir Tercatat (Success)</span>
+          <p class="text-xs text-[#55626A]">Konfirmasi cepat dengan timestamp &amp; rincian</p>
+        </div>
+        <div class="device-frame bg-[#F3F5F2] justify-between">
+          <!-- Top bar -->
+          <div class="pt-3 px-6 flex justify-between items-center text-xs text-[#55626A]">
+            <span class="font-medium">09:41</span>
+            <div class="flex items-center space-x-1.5">
+              <div class="w-2 h-2 rounded-full bg-[#1F7A4D]"></div>
+              <span>Online</span>
+            </div>
+          </div>
+
+          <!-- Content Center -->
+          <div class="flex-1 flex flex-col items-center justify-center px-6 text-center">
+            <!-- Big Success Icon Badge -->
+            <div class="w-20 h-20 rounded-full bg-[#E1F2E9] border-2 border-[#1F7A4D]/30 flex items-center justify-center text-[#1F7A4D] mb-5 shadow-sm">
+              <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#E1F2E9] text-[#1F7A4D] mb-2">
+              Status Presensi: Hadir
+            </span>
+
+            <h2 class="text-2xl font-bold tracking-tight text-[#263235]">Hadir tercatat</h2>
+            <p class="text-sm font-semibold text-[#3F7A1F] mt-1">Interaksi Manusia dan Komputer</p>
+            <p class="text-xs text-[#55626A] mt-0.5">Kelas B • Rabu, 18 Okt 2026 • 09.41 WIB</p>
+
+            <!-- Detail Box -->
+            <div class="w-full bg-white border border-[#DCE2DA] rounded-[10px] p-4 mt-6 text-left space-y-2.5">
+              <div class="flex justify-between items-center text-xs pb-2 border-b border-[#DCE2DA]">
+                <span class="text-[#55626A]">Pertemuan ke-</span>
+                <span class="font-semibold text-[#263235]">5 dari 5 pertemuan</span>
+              </div>
+              <div class="flex justify-between items-center text-xs pb-2 border-b border-[#DCE2DA]">
+                <span class="text-[#55626A]">Dosen Pengampu</span>
+                <span class="font-medium text-[#263235]">Dr. Rina Kusumawardani</span>
+              </div>
+              <div class="flex justify-between items-center text-xs">
+                <span class="text-[#55626A]">Ruang Kuliah</span>
+                <span class="font-medium text-[#263235]">R.4.01</span>
+              </div>
+            </div>
+
+            <div class="mt-4 flex items-center text-xs text-[#1F7A4D] space-x-1">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>Rekapitulasi otomatis diperbarui ke KHS</span>
+            </div>
+          </div>
+
+          <!-- Bottom Action -->
+          <div class="p-6 bg-white border-t border-[#DCE2DA] space-y-2">
+            <button class="w-full h-11 bg-[#3F7A1F] hover:bg-[#2F6016] text-white font-semibold text-sm rounded-[6px] transition-colors">
+              Selesai
+            </button>
+            <div class="w-32 h-1 bg-[#263235]/20 rounded-full mx-auto mt-4"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= FRAME 3: STATUS B (FAILURE) ================= -->
+      <div class="flex flex-col items-center">
+        <div class="mb-3 text-center">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#B3261E]">Status B: QR Tidak Terbaca (Failure)</span>
+          <p class="text-xs text-[#55626A]">Penjelasan kegagalan yang data-honest</p>
+        </div>
+        <div class="device-frame bg-[#F3F5F2] justify-between">
+          <!-- Top bar -->
+          <div class="pt-3 px-6 flex justify-between items-center text-xs text-[#55626A]">
+            <span class="font-medium">09:41</span>
+            <span class="text-xs text-[#55626A]">Absensi Kuliah</span>
+          </div>
+
+          <!-- Content Center -->
+          <div class="flex-1 flex flex-col items-center justify-center px-6 text-center">
+            <!-- Danger Icon Badge -->
+            <div class="w-20 h-20 rounded-full bg-[#FBE4E2] border-2 border-[#B3261E]/30 flex items-center justify-center text-[#B3261E] mb-5 shadow-sm">
+              <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+              </svg>
+            </div>
+
+            <h2 class="text-2xl font-bold tracking-tight text-[#263235]">QR tidak terbaca</h2>
+            
+            <!-- Danger Tint Alert Box -->
+            <div class="w-full bg-[#FBE4E2] border border-[#B3261E]/20 rounded-[10px] p-4 mt-4 text-left">
+              <p class="text-xs font-semibold text-[#B3261E] uppercase tracking-wider">Penyebab</p>
+              <p class="text-sm text-[#263235] mt-1 font-medium">QR tidak dikenali atau sesi sudah ditutup oleh dosen.</p>
+              <p class="text-xs text-[#55626A] mt-2 leading-relaxed">
+                Pastikan Anda memindai kode QR terbaru dari proyektor dosen, atau mintalah 6 digit kode manual dari dosen pengampu.
+              </p>
+            </div>
+
+            <!-- Alternative Action Card -->
+            <div class="w-full bg-white border border-[#DCE2DA] rounded-[10px] p-3.5 mt-4 text-left flex items-center justify-between">
+              <div>
+                <p class="text-xs font-semibold text-[#263235]">Kamera bermasalah?</p>
+                <p class="text-xs text-[#55626A]">Gunakan 6-digit kode manual dosen</p>
+              </div>
+              <button class="px-3 py-1.5 bg-[#E6F0DC] text-[#3F7A1F] text-xs font-semibold rounded-[6px] hover:bg-[#3F7A1F] hover:text-white transition-colors">
+                Isi Kode
+              </button>
+            </div>
+          </div>
+
+          <!-- Bottom Actions -->
+          <div class="p-6 bg-white border-t border-[#DCE2DA] space-y-2.5">
+            <button class="w-full h-11 bg-[#3F7A1F] hover:bg-[#2F6016] text-white font-semibold text-sm rounded-[6px] transition-colors">
+              Coba lagi
+            </button>
+            <div class="text-center pt-1">
+              <a href="#" class="text-xs text-[#55626A] hover:text-[#263235] underline underline-offset-4 font-medium transition-colors">
+                Laporkan masalah
+              </a>
+            </div>
+            <div class="w-32 h-1 bg-[#263235]/20 rounded-full mx-auto mt-2"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= FRAME 4: STATUS C (PENDING / OFFLINE) ================= -->
+      <div class="flex flex-col items-center">
+        <div class="mb-3 text-center">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#1F5F8B]">Status C: Menunggu Koneksi (Pending)</span>
+          <p class="text-xs text-[#55626A]">Jaminan data tersimpan di perangkat</p>
+        </div>
+        <div class="device-frame bg-[#F3F5F2] justify-between">
+          <!-- Top bar -->
+          <div class="pt-3 px-6 flex justify-between items-center text-xs text-[#55626A]">
+            <span class="font-medium">09:41</span>
+            <div class="flex items-center space-x-1.5 text-[#A85F00]">
+              <div class="w-2 h-2 rounded-full bg-[#A85F00] animate-pulse"></div>
+              <span>Offline</span>
+            </div>
+          </div>
+
+          <!-- Content Center -->
+          <div class="flex-1 flex flex-col items-center justify-center px-6 text-center">
+            <!-- Neutral Info Icon Badge -->
+            <div class="w-20 h-20 rounded-full bg-[#E0EEF7] border-2 border-[#1F5F8B]/30 flex items-center justify-center text-[#1F5F8B] mb-5 shadow-sm">
+              <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+
+            <h2 class="text-2xl font-bold tracking-tight text-[#263235]">Menunggu koneksi</h2>
+            
+            <!-- Neutral Card Info -->
+            <div class="w-full bg-[#E0EEF7] border border-[#1F5F8B]/20 rounded-[10px] p-4 mt-4 text-left">
+              <div class="flex items-center space-x-2 text-[#1F5F8B] font-semibold text-xs mb-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                <span>Tersimpan di Perangkat (Lokal)</span>
+              </div>
+              <p class="text-sm text-[#263235] font-medium leading-relaxed">
+                Absen kamu tersimpan di perangkat dan dikirim otomatis saat koneksi pulih.
+              </p>
+              <p class="text-xs text-[#55626A] mt-2">
+                Jangan hapus data cache browser atau keluar dari akun SALAM hingga sinkronisasi berhasil.
+              </p>
+            </div>
+
+            <div class="w-full bg-white border border-[#DCE2DA] rounded-[10px] p-3 mt-4 text-left space-y-1">
+              <div class="flex justify-between text-xs text-[#55626A]">
+                <span>Mata Kuliah</span>
+                <span class="font-medium text-[#263235]">Interaksi Manusia dan Komputer</span>
+              </div>
+              <div class="flex justify-between text-xs text-[#55626A]">
+                <span>Waktu Scan Lokal</span>
+                <span class="font-medium text-[#263235]">09:41:22 WIB</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Action -->
+          <div class="p-6 bg-white border-t border-[#DCE2DA] space-y-2">
+            <button class="w-full h-11 bg-white hover:bg-[#F3F5F2] border border-[#DCE2DA] text-[#263235] font-semibold text-sm rounded-[6px] transition-colors">
+              Tutup
+            </button>
+            <div class="w-32 h-1 bg-[#263235]/20 rounded-full mx-auto mt-4"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= FRAME 5: STATUS D (CAMERA DENIED) ================= -->
+      <div class="flex flex-col items-center">
+        <div class="mb-3 text-center">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#A85F00]">Status D: Izin Kamera Ditolak</span>
+          <p class="text-xs text-[#55626A]">Rute transisi ke pengisian kode manual</p>
+        </div>
+        <div class="device-frame bg-[#F3F5F2] justify-between">
+          <!-- Top bar -->
+          <div class="pt-3 px-6 flex justify-between items-center text-xs text-[#55626A]">
+            <span class="font-medium">09:41</span>
+            <button class="text-xs text-[#55626A] hover:text-[#263235]">Tutup</button>
+          </div>
+
+          <!-- Content Center -->
+          <div class="flex-1 flex flex-col items-center justify-center px-6 text-center">
+            <!-- Camera Disabled Icon Badge -->
+            <div class="w-20 h-20 rounded-full bg-[#FDF0DA] border-2 border-[#A85F00]/30 flex items-center justify-center text-[#A85F00] mb-5 shadow-sm">
+              <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path>
+              </svg>
+            </div>
+
+            <h2 class="text-2xl font-bold tracking-tight text-[#263235]">Kamera tidak bisa diakses</h2>
+            <p class="text-sm text-[#55626A] mt-2 leading-relaxed max-w-[280px]">
+              Izin kamera ditolak. Aktifkan lewat pengaturan browser, atau masukkan kode dari dosen.
+            </p>
+
+            <div class="w-full bg-white border border-[#DCE2DA] rounded-[10px] p-4 mt-6 text-left space-y-2">
+              <p class="text-xs font-semibold text-[#263235]">Cara alternatif langsung:</p>
+              <div class="flex items-start space-x-2 text-xs text-[#55626A]">
+                <span class="w-4 h-4 rounded-full bg-[#E6F0DC] text-[#3F7A1F] flex items-center justify-center text-[10px] font-bold mt-0.5">1</span>
+                <span>Lihat 6 digit kode yang ditampilkan dosen di layar kelas</span>
+              </div>
+              <div class="flex items-start space-x-2 text-xs text-[#55626A]">
+                <span class="w-4 h-4 rounded-full bg-[#E6F0DC] text-[#3F7A1F] flex items-center justify-center text-[10px] font-bold mt-0.5">2</span>
+                <span>Ketik kode manual di tombol bawah ini</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Actions -->
+          <div class="p-6 bg-white border-t border-[#DCE2DA] space-y-2.5">
+            <button class="w-full h-11 bg-[#3F7A1F] hover:bg-[#2F6016] text-white font-semibold text-sm rounded-[6px] transition-colors">
+              Masukkan kode manual
+            </button>
+            <div class="text-center pt-1">
+              <a href="#" class="text-xs text-[#3F7A1F] hover:underline font-medium">
+                Cara mengaktifkan kamera
+              </a>
+            </div>
+            <div class="w-32 h-1 bg-[#263235]/20 rounded-full mx-auto mt-2"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= FRAME 6: STATUS E (INPUT KODE MANUAL & INLINE ERROR) ================= -->
+      <div class="flex flex-col items-center">
+        <div class="mb-3 text-center">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#3F7A1F]">Status E: Input Kode Manual &amp; Error</span>
+          <p class="text-xs text-[#55626A]">6 digit box &amp; pesan kesalahan inline</p>
+        </div>
+        <div class="device-frame bg-[#F3F5F2] justify-between">
+          <!-- Top bar -->
+          <div class="pt-4 px-6 flex justify-between items-center text-xs text-[#55626A] border-b border-[#DCE2DA] bg-white pb-3">
+            <button class="flex items-center space-x-1 text-[#3F7A1F] font-semibold">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+              <span>Kembali</span>
+            </button>
+            <span class="font-semibold text-[#263235]">Presensi Manual</span>
+            <div class="w-10"></div>
+          </div>
+
+          <!-- Content Center -->
+          <div class="flex-1 flex flex-col px-6 pt-6">
+            <h2 class="text-xl font-bold tracking-tight text-[#263235]">Masukkan kode absen</h2>
+            <p class="text-xs text-[#55626A] mt-1">Interaksi Manusia dan Komputer • Kelas B</p>
+
+            <div class="mt-6">
+              <label class="block text-xs font-semibold text-[#263235] mb-2">Kode absen (6 karakter)</label>
+              
+              <!-- 6 Digit Input Boxes (Auto Uppercase) -->
+              <div class="flex justify-between gap-1.5 mb-2">
+                <input type="text" maxlength="1" value="I" class="code-box uppercase" readonly="">
+                <input type="text" maxlength="1" value="M" class="code-box uppercase" readonly="">
+                <input type="text" maxlength="1" value="K" class="code-box uppercase" readonly="">
+                <input type="text" maxlength="1" value="8" class="code-box uppercase border-[#B3261E] bg-[#FBE4E2]" readonly="">
+                <input type="text" maxlength="1" value="4" class="code-box uppercase border-[#B3261E] bg-[#FBE4E2]" readonly="">
+                <input type="text" maxlength="1" value="2" class="code-box uppercase border-[#B3261E] bg-[#FBE4E2]" readonly="">
+              </div>
+
+              <!-- Inline Error as requested in Prompt -->
+              <div class="flex items-start space-x-1.5 p-2.5 bg-[#FBE4E2] border border-[#B3261E]/30 rounded-[6px] mt-3 text-left">
+                <svg class="w-4 h-4 text-[#B3261E] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <p class="text-xs font-medium text-[#B3261E] leading-relaxed">
+                  Kode salah atau sesi sudah ditutup. Periksa kode dan coba lagi.
+                </p>
+              </div>
+
+              <p class="text-xs text-[#55626A] mt-3 flex items-center space-x-1.5">
+                <svg class="w-3.5 h-3.5 text-[#3F7A1F]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span>Kode ada di layar dosen</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Bottom Actions -->
+          <div class="p-6 bg-white border-t border-[#DCE2DA] space-y-2.5">
+            <button class="w-full h-11 bg-[#3F7A1F] hover:bg-[#2F6016] text-white font-semibold text-sm rounded-[6px] transition-colors">
+              Kirim kode
+            </button>
+            <div class="text-center pt-1">
+              <a href="#" class="text-xs text-[#3F7A1F] hover:underline font-medium">
+                Kembali ke scan QR
+              </a>
+            </div>
+            <div class="w-32 h-1 bg-[#263235]/20 rounded-full mx-auto mt-2"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+</body></html>

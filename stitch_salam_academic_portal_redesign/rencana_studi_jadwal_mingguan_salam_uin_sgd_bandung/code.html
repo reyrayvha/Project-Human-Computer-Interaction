@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="id"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400..700;1,400..700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "surface-dim": "#cfdce0",
+        "ink-muted": "#55626A",
+        "on-primary-fixed": "#082100",
+        "on-secondary-container": "#456e00",
+        "success": "#1F7A4D",
+        "tertiary-fixed-dim": "#ffafd8",
+        "primary-hover": "#2F6016",
+        "secondary-container": "#b6f267",
+        "background": "#effcff",
+        "primary-container": "#3f7a1f",
+        "on-primary-container": "#c7ffa4",
+        "outline-variant": "#c1c9b7",
+        "on-background": "#111d20",
+        "surface-variant": "#d8e5e8",
+        "on-secondary-fixed-variant": "#304f00",
+        "leaf": "#8CC43F",
+        "logo-green": "#588A2A",
+        "primary-fixed": "#b1f58a",
+        "danger-tint": "#FBE4E2",
+        "warning": "#A85F00",
+        "on-tertiary-container": "#ffeaf1",
+        "tertiary": "#8d306a",
+        "warning-tint": "#FDF0DA",
+        "surface-bright": "#effcff",
+        "inverse-primary": "#96d871",
+        "info": "#1F5F8B",
+        "on-tertiary-fixed": "#3c0029",
+        "secondary-fixed-dim": "#9ed750",
+        "tertiary-fixed": "#ffd8e9",
+        "surface-card": "#FFFFFF",
+        "surface-container": "#e3f0f4",
+        "surface": "#effcff",
+        "on-tertiary": "#ffffff",
+        "surface-container-low": "#e9f6fa",
+        "surface-container-lowest": "#ffffff",
+        "on-tertiary-fixed-variant": "#7d225b",
+        "success-tint": "#E1F2E9",
+        "on-surface": "#111d20",
+        "primary-tint": "#E6F0DC",
+        "surface-bg": "#F3F5F2",
+        "on-surface-variant": "#41493b",
+        "on-primary-fixed-variant": "#1e5100",
+        "danger": "#B3261E",
+        "tertiary-container": "#ab4983",
+        "on-error": "#ffffff",
+        "logo-slate": "#263235",
+        "error": "#ba1a1a",
+        "on-error-container": "#93000a",
+        "ink": "#263235",
+        "on-secondary": "#ffffff",
+        "on-primary": "#ffffff",
+        "surface-container-high": "#ddeaee",
+        "error-container": "#ffdad6",
+        "inverse-surface": "#263235",
+        "outline": "#727a6a",
+        "border": "#DCE2DA",
+        "surface-tint": "#316b10",
+        "info-tint": "#E0EEF7",
+        "secondary-fixed": "#b9f469",
+        "on-secondary-fixed": "#112000",
+        "primary-fixed-dim": "#96d871",
+        "inverse-on-surface": "#e6f3f7",
+        "secondary": "#426900",
+        "primary": "#276003"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.125rem",
+        "lg": "0.25rem",
+        "xl": "0.5rem",
+        "full": "0.75rem"
+      },
+      "spacing": {
+        "space-card": "1.25rem",
+        "card-padding": "20px",
+        "margin-mobile": "1rem",
+        "space-xs": "0.25rem",
+        "margin": "1.5rem",
+        "space-lg": "1.5rem",
+        "page-gutter": "24px",
+        "space-sm": "0.5rem",
+        "gutter": "1.5rem",
+        "space-md": "1rem",
+        "space-xl": "2rem",
+        "unit": "8px"
+      },
+      "fontFamily": {
+        "body-default": ["Atkinson Hyperlegible Next"],
+        "display": ["Atkinson Hyperlegible Next"],
+        "headline-md": ["Atkinson Hyperlegible Next"],
+        "caption": ["Atkinson Hyperlegible Next"],
+        "headline-lg": ["Atkinson Hyperlegible Next"],
+        "body-table": ["Atkinson Hyperlegible Next"],
+        "label-sm": ["Atkinson Hyperlegible Next"],
+        "stat": ["Atkinson Hyperlegible Next"]
+      },
+      "fontSize": {
+        "body-default": ["15px", {"lineHeight": "24px", "fontWeight": "400"}],
+        "display": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+        "headline-md": ["18px", {"lineHeight": "26px", "fontWeight": "600"}],
+        "caption": ["13px", {"lineHeight": "18px", "fontWeight": "500"}],
+        "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+        "body-table": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+        "stat": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+      }
+    }
+  }
+}</script></head><body class="bg-surface-bg font-body-default text-body-default text-ink antialiased min-h-screen selection:bg-primary-tint selection:text-primary"><aside class="fixed left-0 top-0 h-screen w-[264px] bg-surface-card border-r border-border z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="h-16 px-space-md flex items-center border-b border-border"><img alt="salam-logo-full-transparent.png" class="w-[160px] h-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Utbtv18skPP2BTdPyRaKVBBXZDuCw16qe7Rx76GqqJ5YlBIa0BEKjS9KR-VCE_ih207MkJvjBz3RrhhQUBP_1zSfC1EyaIMLwyZy2tlX60GMgEdniBjgYOLliKwXuRoddbT47iXlY--_3goLsKmEZsnCn9oHRn3uMDA5jdA7kmwMMhM_HhjS5masRgOcGhmrSjMDTF3h-UKrLE-_4eMswC21X1Vm5DgAgEMmk4pEItV6sNoWy4jQ38WgtRWIfB_WSpOiuR0JMk"></div><div class="p-space-md border-b border-border bg-surface-card"><div class="flex items-center gap-space-sm"><div class="relative flex-shrink-0"><div class="w-10 h-10 rounded-full bg-primary-tint flex items-center justify-center font-headline-md text-headline-md text-logo-slate font-bold">AN</div><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-success ring-2 ring-surface-card"></span></div><div class="flex flex-col min-w-0 flex-1"><div class="flex items-center gap-1.5"><span class="font-caption text-caption font-semibold text-ink truncate">Aisyah Nurfadilah</span></div><span class="font-label-sm text-label-sm text-ink-muted truncate">1247050001</span><span class="font-label-sm text-[11px] text-success font-medium flex items-center gap-1 mt-0.5"><span class="w-1.5 h-1.5 rounded-full bg-success"></span>Online</span></div></div></div><nav class="p-space-sm flex flex-col gap-space-xs" data-active-classes="bg-primary-tint text-primary-container font-semibold relative before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[3px] before:bg-leaf"><div class="px-space-sm pt-space-xs pb-1"><span class="font-label-sm text-label-sm uppercase tracking-wider text-ink-muted font-bold">Utama</span></div><a class="flex items-center gap-3 px-space-sm py-2 rounded-lg text-ink-muted hover:bg-surface-bg hover:text-ink transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span class="font-body-table text-body-table">Dashboard</span></a><a class="flex items-center gap-3 px-space-sm py-2 rounded-lg text-ink-muted hover:bg-surface-bg hover:text-ink transition-colors" data-path="absensi-kuliah" href="#"><span class="material-symbols-outlined text-[20px]">qr_code_scanner</span><span class="font-body-table text-body-table">Absensi Kuliah</span></a><div class="px-space-sm pt-space-sm pb-1"><span class="font-label-sm text-label-sm uppercase tracking-wider text-ink-muted font-bold">Akademik</span></div><div class="flex flex-col"><button class="w-full flex items-center justify-between px-space-sm py-2 rounded-lg text-ink font-medium hover:bg-surface-bg transition-colors" type="button"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[20px] text-primary-container">school</span><span class="font-body-table text-body-table font-medium">Perkuliahan</span></div><span class="material-symbols-outlined text-[18px] text-ink-muted rotate-180">expand_more</span></button><div class="flex flex-col pl-7 pr-1 mt-0.5 space-y-0.5 border-l border-border ml-5"><a aria-current="page" class="flex items-center gap-2 px-space-sm py-1.5 rounded-lg transition-colors bg-primary-tint text-primary-container font-semibold relative before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-[3px] before:bg-leaf" data-path="rencana-studi" href="#"><span class="font-body-table text-body-table">Rencana Studi</span></a><a class="flex items-center gap-2 px-space-sm py-1.5 rounded-lg text-ink-muted hover:bg-surface-bg hover:text-ink transition-colors" data-path="kelulusan" href="#"><span class="font-body-table text-body-table">Kelulusan</span></a></div></div><div class="flex items-center justify-between px-space-sm py-2 rounded-lg text-ink-muted hover:bg-surface-bg hover:text-ink transition-colors cursor-pointer"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[20px]">analytics</span><span class="font-body-table text-body-table">Hasil Studi</span></div><span class="material-symbols-outlined text-[18px] text-ink-muted">expand_more</span></div><a class="flex items-center gap-3 px-space-sm py-2 rounded-lg text-ink-muted hover:bg-surface-bg hover:text-ink transition-colors" data-path="bimbingan" href="#"><span class="material-symbols-outlined text-[20px]">menu_book</span><span class="font-body-table text-body-table truncate">Bimbingan Skripsi/Tesis</span></a><div class="px-space-sm pt-space-sm pb-1"><span class="font-label-sm text-label-sm uppercase tracking-wider text-ink-muted font-bold">Layanan</span></div><div class="flex items-center justify-between px-space-sm py-2 rounded-lg text-ink-muted hover:bg-surface-bg hover:text-ink transition-colors cursor-pointer"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[20px]">edit_note</span><span class="font-body-table text-body-table">Pendaftaran</span></div><span class="material-symbols-outlined text-[18px] text-ink-muted">expand_more</span></div><div class="flex items-center justify-between px-space-sm py-2 rounded-lg text-ink-muted hover:bg-surface-bg hover:text-ink transition-colors cursor-pointer"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[20px]">military_tech</span><span class="font-body-table text-body-table">Wisuda</span></div><span class="material-symbols-outlined text-[18px] text-ink-muted">expand_more</span></div><div class="flex items-center justify-between px-space-sm py-2 rounded-lg text-ink-muted hover:bg-surface-bg hover:text-ink transition-colors cursor-pointer"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[20px]">account_balance_wallet</span><span class="font-body-table text-body-table">Keuangan</span></div><span class="material-symbols-outlined text-[18px] text-ink-muted">expand_more</span></div><a class="flex items-center gap-3 px-space-sm py-2 rounded-lg text-ink-muted hover:bg-surface-bg hover:text-ink transition-colors" data-path="cetak-ktm" href="#"><span class="material-symbols-outlined text-[20px]">badge</span><span class="font-body-table text-body-table">Cetak KTM</span></a><div class="px-space-sm pt-space-sm pb-1"><span class="font-label-sm text-label-sm uppercase tracking-wider text-ink-muted font-bold">Akun</span></div><div class="flex items-center justify-between px-space-sm py-2 rounded-lg text-ink-muted hover:bg-surface-bg hover:text-ink transition-colors cursor-pointer"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[20px]">manage_accounts</span><span class="font-body-table text-body-table">Akun</span></div><span class="material-symbols-outlined text-[18px] text-ink-muted">expand_more</span></div></nav></div><div class="p-space-sm border-t border-border bg-surface-card"><a class="flex items-center gap-3 px-space-sm py-2 rounded-lg text-danger hover:bg-danger-tint transition-colors" data-path="keluar" href="#"><span class="material-symbols-outlined text-[20px] text-danger">logout</span><span class="font-body-table text-body-table font-semibold">Keluar</span></a></div></aside><div class="pl-[264px] min-h-screen flex flex-col bg-surface-bg"><header class="fixed top-0 left-[264px] right-0 h-16 bg-surface-card border-b border-border z-40 px-gutter flex items-center justify-between"><div class="flex items-center gap-2 font-caption text-caption text-ink-muted min-w-0"><span class="hover:text-ink cursor-pointer transition-colors">Beranda</span><span class="material-symbols-outlined text-[16px] text-ink-muted">chevron_right</span><span class="hover:text-ink cursor-pointer transition-colors">Perkuliahan</span><span class="material-symbols-outlined text-[16px] text-ink-muted">chevron_right</span><span class="font-semibold text-ink truncate">Rencana Studi</span></div><div class="flex items-center gap-space-md"><div class="relative hidden xl:flex items-center"><span class="material-symbols-outlined absolute left-3 text-ink-muted text-[18px]">search</span><input class="w-72 h-10 pl-9 pr-14 bg-surface-card border border-border rounded-lg font-caption text-caption text-ink placeholder:text-ink-muted focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-tint" placeholder="Cari layanan atau informasi..." type="text"><div class="absolute right-2 px-1.5 py-0.5 rounded bg-surface-bg border border-border text-[11px] font-caption text-ink-muted font-medium">Ctrl K</div></div><div class="hidden md:flex items-center gap-1.5 h-8 px-2.5 rounded-full bg-success-tint text-success font-label-sm text-label-sm border border-success/20"><span class="material-symbols-outlined text-[16px]">check_circle</span><span>SALAM normal</span></div><div class="hidden sm:flex items-center h-8 px-3 rounded-full bg-surface-bg border border-border font-label-sm text-label-sm text-ink-muted font-medium"><span>Semester aktif 2026/2027 Ganjil</span></div><button aria-label="Notifications" class="relative w-9 h-9 rounded-lg border border-border bg-surface-card flex items-center justify-center text-ink-muted hover:bg-surface-bg transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-danger text-on-primary font-label-sm text-[10px] flex items-center justify-center font-bold">2</span></button><div class="flex items-center gap-2 pl-2 border-l border-border cursor-pointer"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><span class="material-symbols-outlined text-[18px] text-ink-muted">expand_more</span></div></div></header><main class="w-full max-w-[1200px] mx-auto px-gutter pt-16 pb-space-xl flex-1"><div class="flex flex-col w-full">
+<!-- Top Action & Title Row -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md pb-space-lg">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-ink font-semibold tracking-tight">Rencana Studi</h1>
+<p class="font-caption text-caption text-ink-muted mt-1">Kartu Rencana Studi aktif dan riwayat persetujuan akademik semester berjalan</p>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-tint border border-primary-container/20 text-primary-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span>Semester 20261</span>
+</div>
+<button class="h-10 px-4 bg-primary-container hover:bg-primary-hover text-on-primary font-caption text-caption font-semibold rounded-lg flex items-center gap-2 transition-colors cursor-pointer shadow-sm" onclick="window.print()" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+<span>Cetak KRS</span>
+</button>
+</div>
+</div>
+<!-- 1. Neutral Info Banner -->
+<div class="w-full bg-info-tint border border-[#B8D5E5] rounded-[10px] p-[16px_20px] flex items-start gap-space-sm mb-space-lg text-info">
+<span class="material-symbols-outlined text-[20px] flex-shrink-0 mt-0.5">info</span>
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between w-full gap-2">
+<p class="font-caption text-caption leading-relaxed text-info">
+<span class="font-semibold">Periode KRS belum dibuka.</span> Kamu masih bisa melihat dan mencetak KRS semester ini. Periode berikutnya: <span class="font-semibold">15 Januari – 28 Januari 2027</span> (Semester Genap 2026/2027).
+      </p>
+<span class="inline-flex items-center text-[12px] font-semibold text-info flex-shrink-0 underline cursor-pointer hover:opacity-80">Jadwal Kalender</span>
+</div>
+</div>
+<!-- 2. Compact Academic Profile Card -->
+<div class="bg-surface-card border border-border rounded-[10px] p-card-padding mb-space-lg shadow-sm">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+<!-- Left Column -->
+<div class="flex flex-col space-y-3.5">
+<div class="flex items-baseline justify-between border-b border-border/60 pb-2">
+<span class="font-caption text-caption text-ink-muted">Nama</span>
+<span class="font-body-default text-body-default font-semibold text-ink">Aisyah Nurfadilah</span>
+</div>
+<div class="flex items-baseline justify-between border-b border-border/60 pb-2">
+<span class="font-caption text-caption text-ink-muted">NIM</span>
+<span class="font-body-default text-body-default font-semibold text-ink tabular-nums">1247050001</span>
+</div>
+<div class="flex items-baseline justify-between border-b border-border/60 pb-2">
+<span class="font-caption text-caption text-ink-muted">Program Studi</span>
+<span class="font-body-default text-body-default font-semibold text-ink text-right">S1 Teknik Informatika (FST)</span>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="font-caption text-caption text-ink-muted">Angkatan</span>
+<span class="font-body-default text-body-default font-semibold text-ink">2024 (20241)</span>
+</div>
+</div>
+<!-- Right Column -->
+<div class="flex flex-col space-y-3.5">
+<div class="flex items-baseline justify-between border-b border-border/60 pb-2">
+<span class="font-caption text-caption text-ink-muted">Dosen Pembimbing Akademik</span>
+<div class="flex items-center gap-1.5 text-right">
+<span class="font-body-default text-body-default font-semibold text-ink">Dr. Hendra Gunawan, M.T.</span>
+<button class="text-primary-container hover:text-primary-hover transition-colors" title="Hubungi Dosen Pembimbing" type="button">
+<span class="material-symbols-outlined text-[17px]">chat</span>
+</button>
+</div>
+</div>
+<div class="flex items-baseline justify-between border-b border-border/60 pb-2">
+<span class="font-caption text-caption text-ink-muted">IP Semester Sebelumnya</span>
+<span class="font-body-default text-body-default font-semibold text-ink tabular-nums">3,74 <span class="text-ink-muted font-normal text-caption">(Semester 4)</span></span>
+</div>
+<div class="flex items-baseline justify-between border-b border-border/60 pb-2">
+<span class="font-caption text-caption text-ink-muted">Semester Mahasiswa</span>
+<span class="font-body-default text-body-default font-semibold text-ink">Semester 5 <span class="text-success font-medium">(Aktif)</span></span>
+</div>
+<div class="flex items-center justify-end pt-1">
+<a class="font-caption text-caption text-ink-muted hover:text-ink inline-flex items-center gap-1 transition-colors" href="#">
+<span class="material-symbols-outlined text-[14px]">flag</span>
+<span>Laporkan data keliru</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. SKS Summary Row (3 Metric Tiles + 1 Approval/Progress Tile) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md mb-space-lg">
+<!-- Stat 1 -->
+<div class="bg-surface-card border border-border rounded-[10px] p-card-padding flex flex-col justify-between shadow-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-ink-muted font-semibold">SKS Diambil</span>
+<div class="my-2 flex items-baseline gap-1">
+<span class="font-stat text-stat font-semibold text-primary-container tabular-nums">23</span>
+<span class="font-caption text-caption text-ink-muted font-medium">SKS</span>
+</div>
+<p class="font-caption text-caption text-ink-muted">Dari 8 mata kuliah terpilih</p>
+</div>
+<!-- Stat 2 -->
+<div class="bg-surface-card border border-border rounded-[10px] p-card-padding flex flex-col justify-between shadow-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-ink-muted font-semibold">Jatah SKS</span>
+<div class="my-2 flex items-baseline gap-1">
+<span class="font-stat text-stat font-semibold text-ink tabular-nums">24</span>
+<span class="font-caption text-caption text-ink-muted font-medium">SKS Maks</span>
+</div>
+<p class="font-caption text-caption text-ink-muted">Berdasarkan IP sebelumnya 3,74</p>
+</div>
+<!-- Stat 3 -->
+<div class="bg-surface-card border border-border rounded-[10px] p-card-padding flex flex-col justify-between shadow-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-ink-muted font-semibold">Sisa Jatah</span>
+<div class="my-2 flex items-baseline gap-1">
+<span class="font-stat text-stat font-semibold text-ink-muted tabular-nums">1</span>
+<span class="font-caption text-caption text-ink-muted font-medium">SKS</span>
+</div>
+<p class="font-caption text-caption text-ink-muted">SKS belum dimanfaatkan</p>
+</div>
+<!-- Status & Progress -->
+<div class="bg-surface-card border border-border rounded-[10px] p-card-padding flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between gap-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-success-tint text-success font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Sudah disetujui dosen wali</span>
+</span>
+</div>
+<div class="my-2">
+<div class="flex justify-between items-center text-caption font-caption mb-1">
+<span class="text-ink-muted">Pemenuhan Kuota</span>
+<span class="font-semibold text-ink tabular-nums">23 dari 24 SKS</span>
+</div>
+<div class="w-full h-2 rounded-full bg-primary-tint overflow-hidden">
+<div class="h-full bg-primary-container rounded-full transition-all duration-300" style="width: 95.83%;"></div>
+</div>
+</div>
+<p class="text-[11px] leading-[15px] font-caption text-ink-muted">
+        Disetujui 28 Ags 2026, 14.15 WIB oleh <span class="font-medium text-ink">Dr. Hendra Gunawan, M.T.</span>
+</p>
+</div>
+</div>
+<!-- 4. View Toggle & Search Filter Bar -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md mb-space-md"><div class="inline-flex p-1 bg-surface-bg border border-border rounded-lg" role="tablist"><button class="px-4 py-1.5 rounded-[6px] font-caption text-caption font-medium text-ink-muted hover:text-ink transition-colors flex items-center gap-1.5" id="tab-table" type="button"><span class="material-symbols-outlined text-[16px]">table_rows</span><span>Tabel</span></button><button class="px-4 py-1.5 rounded-[6px] font-caption text-caption font-semibold bg-surface-card text-primary-container shadow-sm border border-border transition-all flex items-center gap-1.5" id="tab-schedule" type="button"><span class="material-symbols-outlined text-[16px]">calendar_view_week</span><span>Jadwal mingguan</span></button></div><div class="flex items-center gap-space-sm flex-wrap sm:flex-nowrap"><div class="relative w-full sm:w-64"><span class="material-symbols-outlined absolute left-3 top-2.5 text-ink-muted text-[18px]">search</span><input class="w-full h-10 pl-9 pr-3 bg-surface-card border border-border rounded-lg font-caption text-caption text-ink placeholder:text-ink-muted focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-tint transition-all" id="krs-search-input" placeholder="Cari mata kuliah atau dosen..." type="text"></div><button class="h-10 px-3.5 bg-surface-card hover:bg-surface-bg border border-border text-ink font-caption text-caption font-semibold rounded-lg flex items-center gap-2 transition-colors cursor-pointer shadow-sm flex-shrink-0" title="Unduh jadwal mingguan PDF / iCal" type="button"><span class="material-symbols-outlined text-[18px] text-ink-muted">calendar_today</span><span>Unduh Jadwal</span></button></div></div>
+<!-- 5. Course Table Container -->
+<div class="bg-surface-card border border-border rounded-[10px] overflow-hidden shadow-sm"><div class="p-[16px_20px] bg-[#F8FAF7] border-b border-border flex flex-col sm:flex-row sm:items-center justify-between gap-2"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary-container text-[20px]">event_available</span><h2 class="font-headline-md text-headline-md text-ink font-semibold">Jadwal Kuliah Mingguan</h2><span class="px-2 py-0.5 rounded text-[11px] font-label-sm font-semibold bg-primary-tint text-primary-container border border-primary-container/20">Semester Ganjil 2026/2027</span></div><div class="flex items-center gap-3 text-caption font-caption text-ink-muted"><div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-primary-tint border border-primary-container/40"></span><span>Perkuliahan Terjadwal</span></div><div class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-success"></span><span>Hari Ini (Rabu)</span></div></div></div><div class="w-full overflow-x-auto"><div class="min-w-[900px] grid grid-cols-[80px_repeat(5,1fr)] divide-x divide-border border-b border-border"><div class="bg-[#F8FAF7] p-3 text-center font-caption text-caption font-semibold text-ink-muted flex items-center justify-center">Jam</div><div class="bg-[#F8FAF7] p-3 text-center border-border"><span class="font-headline-md text-[15px] font-semibold text-ink block">Senin</span><span class="font-label-sm text-[11px] text-ink-muted block mt-0.5">2 Mata Kuliah • 6 SKS</span></div><div class="bg-[#F8FAF7] p-3 text-center border-border"><span class="font-headline-md text-[15px] font-semibold text-ink block">Selasa</span><span class="font-label-sm text-[11px] text-ink-muted block mt-0.5">2 Mata Kuliah • 5 SKS</span></div><div class="bg-[#FAFDF7] p-3 text-center border-b-2 border-b-primary-container relative"><div class="flex items-center justify-center gap-1.5"><span class="font-headline-md text-[15px] font-bold text-primary-container">Rabu</span><span class="px-1.5 py-0.2 rounded-full bg-success text-on-primary text-[10px] font-bold font-label-sm">Hari ini</span></div><span class="font-label-sm text-[11px] text-primary-container block mt-0.5 font-medium">1 Mata Kuliah • 3 SKS</span></div><div class="bg-[#F8FAF7] p-3 text-center border-border"><span class="font-headline-md text-[15px] font-semibold text-ink block">Kamis</span><span class="font-label-sm text-[11px] text-ink-muted block mt-0.5">2 Mata Kuliah • 6 SKS</span></div><div class="bg-[#F8FAF7] p-3 text-center border-border"><span class="font-headline-md text-[15px] font-semibold text-ink block">Jumat</span><span class="font-label-sm text-[11px] text-ink-muted block mt-0.5">1 Mata Kuliah • 3 SKS</span></div></div><div class="min-w-[900px] grid grid-cols-[80px_repeat(5,1fr)] divide-x divide-border relative"><div class="flex flex-col divide-y divide-border/60 bg-[#F8FAF7]/50 text-right pr-2 font-caption text-[11px] text-ink-muted tabular-nums select-none"><div class="h-20 pt-1">07.00</div><div class="h-20 pt-1">08.00</div><div class="h-20 pt-1">09.00</div><div class="h-20 pt-1">10.00</div><div class="h-20 pt-1">11.00</div><div class="h-20 pt-1">12.00</div><div class="h-20 pt-1">13.00</div><div class="h-20 pt-1">14.00</div><div class="h-20 pt-1">15.00</div><div class="h-20 pt-1">16.00</div></div><div class="relative bg-surface-card p-1.5 h-[800px]"><div class="absolute left-1.5 right-1.5 top-[0px] h-[200px] bg-primary-tint border border-primary-container/30 rounded-lg p-2.5 flex flex-col justify-between shadow-sm border-l-4 border-l-primary-container hover:shadow-md transition-shadow cursor-default"><div class="flex items-start justify-between gap-1"><span class="font-caption text-caption font-semibold text-ink leading-tight line-clamp-2">Manajemen Basis Data</span><span class="px-1.5 py-0.5 rounded bg-surface-card text-ink font-label-sm text-[10px] font-bold border border-border">B</span></div><div class="text-[11px] font-caption text-ink-muted space-y-0.5"><div class="flex items-center gap-1 font-medium text-ink"><span class="material-symbols-outlined text-[13px] text-primary-container">schedule</span><span>07.00 - 09.30 WIB</span></div><div class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">meeting_room</span><span>Ruang R.4.09 • 3 SKS</span></div><div class="flex items-center gap-1 truncate text-ink-muted" title="Siti Marlina, M.Kom."><span class="material-symbols-outlined text-[13px]">person</span><span class="truncate">Siti Marlina, M.Kom.</span></div></div></div><div class="absolute left-1.5 right-1.5 top-[200px] h-[200px] bg-primary-tint border border-primary-container/30 rounded-lg p-2.5 flex flex-col justify-between shadow-sm border-l-4 border-l-primary-container hover:shadow-md transition-shadow cursor-default"><div class="flex items-start justify-between gap-1"><span class="font-caption text-caption font-semibold text-ink leading-tight line-clamp-2">Manajemen Proyek Perangkat Lunak</span><span class="px-1.5 py-0.5 rounded bg-surface-card text-ink font-label-sm text-[10px] font-bold border border-border">B</span></div><div class="text-[11px] font-caption text-ink-muted space-y-0.5"><div class="flex items-center gap-1 font-medium text-ink"><span class="material-symbols-outlined text-[13px] text-primary-container">schedule</span><span>09.30 - 12.00 WIB</span></div><div class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">meeting_room</span><span>Ruang R.4.01 • 3 SKS</span></div><div class="flex items-center gap-1 truncate text-ink-muted" title="Dewi Anggraeni, M.T."><span class="material-symbols-outlined text-[13px]">person</span><span class="truncate">Dewi Anggraeni, M.T.</span></div></div></div></div><div class="relative bg-surface-card p-1.5 h-[800px]"><div class="absolute left-1.5 right-1.5 top-[266px] h-[134px] bg-primary-tint border border-primary-container/30 rounded-lg p-2 flex flex-col justify-between shadow-sm border-l-4 border-l-primary-container hover:shadow-md transition-shadow cursor-default"><div class="flex items-start justify-between gap-1"><span class="font-caption text-caption font-semibold text-ink leading-tight line-clamp-2">Kewirausahaan dan Etika Bisnis</span><span class="px-1.5 py-0.5 rounded bg-surface-card text-ink font-label-sm text-[10px] font-bold border border-border">A</span></div><div class="text-[11px] font-caption text-ink-muted space-y-0.5"><div class="flex items-center gap-1 font-medium text-ink"><span class="material-symbols-outlined text-[13px] text-primary-container">schedule</span><span>10.20 - 12.00 WIB</span></div><div class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">meeting_room</span><span>Ruang R.4.11 • 2 SKS</span></div><div class="flex items-center gap-1 truncate text-ink-muted" title="Nurul Hikmah, M.Si."><span class="material-symbols-outlined text-[13px]">person</span><span class="truncate">Nurul Hikmah, M.Si.</span></div></div></div><div class="absolute left-1.5 right-1.5 top-[453px] h-[200px] bg-primary-tint border border-primary-container/30 rounded-lg p-2.5 flex flex-col justify-between shadow-sm border-l-4 border-l-primary-container hover:shadow-md transition-shadow cursor-default"><div class="flex items-start justify-between gap-1"><span class="font-caption text-caption font-semibold text-ink leading-tight line-clamp-2">Intelegensia Buatan</span><span class="px-1.5 py-0.5 rounded bg-surface-card text-ink font-label-sm text-[10px] font-bold border border-border">B</span></div><div class="text-[11px] font-caption text-ink-muted space-y-0.5"><div class="flex items-center gap-1 font-medium text-ink"><span class="material-symbols-outlined text-[13px] text-primary-container">schedule</span><span>12.40 - 15.10 WIB</span></div><div class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">meeting_room</span><span>Ruang R.4.10 • 3 SKS</span></div><div class="flex items-center gap-1 truncate text-ink-muted" title="Budi Santoso, S.T., M.Cs."><span class="material-symbols-outlined text-[13px]">person</span><span class="truncate">Budi Santoso, S.T., M.Cs.</span></div></div></div></div><div class="relative bg-[#FAFDF7]/60 p-1.5 h-[800px]"><div class="absolute left-1.5 right-1.5 top-[200px] h-[200px] bg-primary-tint border border-primary-container/40 rounded-lg p-2.5 flex flex-col justify-between shadow-md border-l-4 border-l-leaf hover:shadow-lg transition-shadow cursor-default"><div class="flex items-start justify-between gap-1"><span class="font-caption text-caption font-semibold text-ink leading-tight line-clamp-2">Interaksi Manusia dan Komputer</span><span class="px-1.5 py-0.5 rounded bg-surface-card text-ink font-label-sm text-[10px] font-bold border border-border">B</span></div><div class="text-[11px] font-caption text-ink-muted space-y-0.5"><div class="flex items-center gap-1 font-semibold text-primary-container"><span class="material-symbols-outlined text-[13px] text-primary-container">schedule</span><span>09.30 - 12.00 WIB</span></div><div class="flex items-center gap-1 text-ink"><span class="material-symbols-outlined text-[13px]">meeting_room</span><span>Ruang R.4.01 • 3 SKS</span></div><div class="flex items-center gap-1 truncate text-ink-muted" title="Dr. Rina Kusumawardani, M.Kom."><span class="material-symbols-outlined text-[13px]">person</span><span class="truncate">Dr. Rina Kusumawardani, M.Kom.</span></div></div><div class="pt-1 border-t border-primary-container/20 flex items-center justify-between text-[10px] font-label-sm"><span class="text-success font-semibold">Jadwal Kuliah Hari Ini</span><span class="text-primary-container font-mono font-medium">IF21205</span></div></div></div><div class="relative bg-surface-card p-1.5 h-[800px]"><div class="absolute left-1.5 right-1.5 top-[0px] h-[200px] bg-primary-tint border border-primary-container/30 rounded-lg p-2.5 flex flex-col justify-between shadow-sm border-l-4 border-l-primary-container hover:shadow-md transition-shadow cursor-default"><div class="flex items-start justify-between gap-1"><span class="font-caption text-caption font-semibold text-ink leading-tight line-clamp-2">Jaringan Komputer</span><span class="px-1.5 py-0.5 rounded bg-surface-card text-ink font-label-sm text-[10px] font-bold border border-border">B</span></div><div class="text-[11px] font-caption text-ink-muted space-y-0.5"><div class="flex items-center gap-1 font-medium text-ink"><span class="material-symbols-outlined text-[13px] text-primary-container">schedule</span><span>07.00 - 09.30 WIB</span></div><div class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">meeting_room</span><span>Ruang R.4.10 • 3 SKS</span></div><div class="flex items-center gap-1 truncate text-ink-muted" title="Agus Prasetyo, M.T."><span class="material-symbols-outlined text-[13px]">person</span><span class="truncate">Agus Prasetyo, M.T.</span></div></div></div><div class="absolute left-1.5 right-1.5 top-[453px] h-[200px] bg-primary-tint border border-primary-container/30 rounded-lg p-2.5 flex flex-col justify-between shadow-sm border-l-4 border-l-primary-container hover:shadow-md transition-shadow cursor-default"><div class="flex items-start justify-between gap-1"><span class="font-caption text-caption font-semibold text-ink leading-tight line-clamp-2">Pengembangan Aplikasi Mobile</span><span class="px-1.5 py-0.5 rounded bg-surface-card text-ink font-label-sm text-[10px] font-bold border border-border">B</span></div><div class="text-[11px] font-caption text-ink-muted space-y-0.5"><div class="flex items-center gap-1 font-medium text-ink"><span class="material-symbols-outlined text-[13px] text-primary-container">schedule</span><span>12.40 - 15.10 WIB</span></div><div class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">meeting_room</span><span>Ruang R.4.12 • 3 SKS</span></div><div class="flex items-center gap-1 truncate text-ink-muted" title="Dr. Hendra Gunawan, M.T."><span class="material-symbols-outlined text-[13px]">person</span><span class="truncate">Dr. Hendra Gunawan, M.T.</span></div></div></div></div><div class="relative bg-surface-card p-1.5 h-[800px]"><div class="absolute left-1.5 right-1.5 top-[200px] h-[200px] bg-primary-tint border border-primary-container/30 rounded-lg p-2.5 flex flex-col justify-between shadow-sm border-l-4 border-l-primary-container hover:shadow-md transition-shadow cursor-default"><div class="flex items-start justify-between gap-1"><span class="font-caption text-caption font-semibold text-ink leading-tight line-clamp-2">Pengembangan Aplikasi Web</span><span class="px-1.5 py-0.5 rounded bg-surface-card text-ink font-label-sm text-[10px] font-bold border border-border">B</span></div><div class="text-[11px] font-caption text-ink-muted space-y-0.5"><div class="flex items-center gap-1 font-medium text-ink"><span class="material-symbols-outlined text-[13px] text-primary-container">schedule</span><span>09.30 - 12.00 WIB</span></div><div class="flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">meeting_room</span><span>Ruang R.3.9 • 3 SKS</span></div><div class="flex items-center gap-1 truncate text-ink-muted" title="Rahmat Hidayat, M.Kom."><span class="material-symbols-outlined text-[13px]">person</span><span class="truncate">Rahmat Hidayat, M.Kom.</span></div></div></div></div></div></div><div class="p-card-padding bg-[#F8FAF7] border-t border-border flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm text-caption font-caption text-ink-muted"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-[18px] text-ink-muted">calendar_month</span><span>Total 8 mata kuliah (23 SKS) terjadwal dalam 5 hari kuliah</span></div><div class="flex items-center gap-2"><span>Batas maksimal:</span><span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-primary-tint text-primary-container font-semibold tabular-nums">23 dari 24 SKS</span></div></div></div>
+</div>
+<script>
+  // Simple table client-side filter
+  const searchInput = document.getElementById('krs-search-input');
+  if (searchInput) {
+    searchInput.addEventListener('input', function(e) {
+      const term = e.target.value.toLowerCase();
+      const rows = document.querySelectorAll('#krs-table tbody tr');
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(term) ? '' : 'none';
+      });
+    });
+  }
+
+  // Segmented toggle behavior
+  const tabTable = document.getElementById('tab-table');
+  const tabSchedule = document.getElementById('tab-schedule');
+  if (tabTable && tabSchedule) {
+    tabSchedule.addEventListener('click', () => {
+      alert('Tampilan jadwal mingguan sedang disinkronkan dengan kalender akademik.');
+    });
+  }
+</script></main></div></body></html>

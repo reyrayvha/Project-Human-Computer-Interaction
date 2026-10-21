@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-feature-settings: "zero" 0, "slsh" 0;
+    font-variant-numeric: normal;
+  }
+
+  body {
+    background-color: #F3F5F2;
+    color: #263235;
+    font-family: 'Plus Jakarta Sans', 'Public Sans', system-ui, -apple-system, sans-serif;
+    font-feature-settings: "zero" 0, "slsh" 0;
+    font-variant-numeric: normal;
+    letter-spacing: -0.011em;
+  }
+
+  /* Force standard unslashed zero across all elements */
+  *, *::before, *::after, input, button, select, textarea, kbd, code, .font-mono {
+    font-feature-settings: "zero" 0, "slsh" 0 !important;
+    font-variant-numeric: normal !important;
+  }
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Elegant Interactive Card Animations - Crisp, Non-Blurry, Smooth */
+.card-interactive {
+  position: relative;
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Integer translate and antialiasing prevent subpixel text blur in Chromium/Windows */
+  transform: translateY(0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.card-interactive:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px -6px rgba(38, 50, 53, 0.08), 0 4px 12px -2px rgba(63, 122, 31, 0.05);
+  border-color: rgba(63, 122, 31, 0.35);
+}
+
+/* Subtle Interactive Lift for List Items and Sub-Cards */
+.item-interactive {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.item-interactive:hover {
+  transform: translateY(-2px);
+  border-color: rgba(63, 122, 31, 0.30);
+  background-color: #FFFFFF;
+  box-shadow: 0 6px 16px -3px rgba(38, 50, 53, 0.06);
+}
+
+/* Elegant Page & Card Entrance Animations ("muncul tidak langsung") */
+@keyframes elegant-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: elegant-enter 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes card-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-card-enter {
+  animation: card-enter 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.card-stagger-1 { animation-delay: 40ms; }
+.card-stagger-2 { animation-delay: 90ms; }
+.card-stagger-3 { animation-delay: 140ms; }
+.card-stagger-4 { animation-delay: 190ms; }
+.card-stagger-5 { animation-delay: 240ms; }
+.card-stagger-6 { animation-delay: 290ms; }
+
+/* Subtle Telemetry Card Rise for smooth updates */
+@keyframes card-rise {
+  0% {
+    opacity: 0.65;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-card-rise {
+  animation: card-rise 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Shimmer animation for skeletons */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #E8ECE6 25%, #F4F6F3 50%, #E8ECE6 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite ease-in-out;
+}
+
+/* Pulse animation for active dot */
+@keyframes soft-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.8;
+  }
+}
+
+.animate-soft-pulse {
+  animation: soft-pulse 2s infinite ease-in-out;
+}
+
+/* Sleek modern custom scrollbar for sidebar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #CBD5E1 transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}

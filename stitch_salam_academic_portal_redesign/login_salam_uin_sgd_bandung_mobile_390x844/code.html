@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="id"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=390, initial-scale=1.0">
+  <title>Masuk ke SALAM - Mobile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#3F7A1F',
+              'primary-hover': '#2F6016',
+              'primary-tint': '#E6F0DC',
+              leaf: '#8CC43F',
+              'logo-green': '#588A2A',
+              ink: '#263235',
+              'ink-muted': '#55626A',
+              bg: '#F3F5F2',
+              card: '#FFFFFF',
+              border: '#DCE2DA',
+              danger: '#B3261E',
+              'danger-tint': '#FBE4E2',
+              info: '#1F5F8B',
+              'info-tint': '#E0EEF7'
+            }
+          },
+          fontFamily: {
+            sans: ['"Public Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-brand-bg text-brand-ink font-sans min-h-screen antialiased flex flex-col justify-between selection:bg-brand-primary-tint selection:text-brand-primary w-full max-w-[390px] mx-auto border-x border-brand-border/40">
+
+  <!-- Mobile Top Bar with Institutional Context -->
+  <header class="py-3 px-4 flex items-center justify-between border-b border-brand-border/60 bg-brand-bg">
+    <div class="flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-brand-primary"></span>
+      <span class="text-xs font-semibold text-brand-ink">UIN Sunan Gunung Djati</span>
+    </div>
+    <span class="text-[11px] font-medium text-brand-ink-muted">Portal Resmi</span>
+  </header>
+
+  <!-- Mobile Form Area -->
+  <main class="flex-1 px-4 py-6 flex flex-col justify-center">
+    
+    <!-- Logo & Institution Header -->
+    <div class="flex flex-col items-center text-center mb-6">
+      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWcgk1F_EGxcNuaQG5fWfNy7n9NLOHRSlMXmuQbyjZqb9XWLKhfUzc_JWtBCt3I4qHEtSqY8DUBdTvtdtayu-mOtZZkKZ4w1EfKwIMxkhA1ToK7ga73fMANDqDDk3f1qbHFkerM2NWsEdcn-D0wMjkukI5llj3yzj3QuzcwnSplYozu3VbrbI8YAvqH5h3VtzvCERANrTo45XOVVdyKbu-8sFVmHp7AMBgny0RlqwggM6JDxt6-5lC8RamIbNRvgxvyw" alt="SALAM UIN SGD Bandung" class="w-[260px] h-auto object-contain block mb-3">
+      <p class="text-xs text-brand-ink-muted leading-relaxed max-w-[280px]">
+        Layanan akademik UIN Sunan Gunung Djati Bandung dalam satu tempat.
+      </p>
+    </div>
+
+    <!-- White Card for Form -->
+    <div class="bg-brand-card rounded-[10px] border border-brand-border p-5 shadow-none">
+      <h1 class="text-[20px] leading-[28px] font-semibold text-brand-ink mb-4">
+        Masuk ke SALAM
+      </h1>
+
+      <form onsubmit="return false;" class="space-y-4">
+        <!-- Username Field (48px high on mobile) -->
+        <div>
+          <label for="m-username" class="block text-xs font-medium text-brand-ink mb-1">
+            Username
+          </label>
+          <input type="text" id="m-username" name="username" value="1247050001" placeholder="Masukkan NIM atau NIP" class="w-full h-12 px-3.5 rounded-[6px] border border-brand-border bg-white text-brand-ink text-sm focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition-all">
+          <p class="mt-1 text-[11px] text-brand-ink-muted">
+            NIM untuk mahasiswa
+          </p>
+        </div>
+
+        <!-- Password Field (48px high on mobile) -->
+        <div>
+          <label for="m-password" class="block text-xs font-medium text-brand-ink mb-1">
+            Password
+          </label>
+          <div class="relative">
+            <input type="password" id="m-password" name="password" placeholder="Masukkan password" class="w-full h-12 pl-3.5 pr-12 rounded-[6px] border border-brand-border bg-white text-brand-ink text-sm focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition-all">
+            <button type="button" aria-label="Tampilkan password" class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-brand-ink-muted hover:text-brand-ink transition-colors">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+              </svg>
+            </button>
+          </div>
+          
+          <!-- Forgot Password Link -->
+          <div class="flex items-center justify-end mt-1.5">
+            <a href="#" class="text-xs font-medium text-brand-primary hover:underline">
+              Lupa password?
+            </a>
+          </div>
+        </div>
+
+        <!-- Buttons Stack (48px touch targets) -->
+        <div class="pt-2 space-y-2.5">
+          <button type="submit" class="w-full h-12 bg-brand-primary hover:bg-brand-primary-hover active:bg-brand-primary-hover text-white font-semibold text-sm rounded-[6px] flex items-center justify-center transition-colors cursor-pointer">
+            Masuk
+          </button>
+
+          <button type="button" class="w-full h-12 bg-transparent active:bg-brand-primary-tint/50 text-brand-primary font-semibold text-sm rounded-[6px] border border-brand-primary flex items-center justify-center transition-colors cursor-pointer">
+            Masuk dengan SSO
+          </button>
+        </div>
+
+        <!-- Security Notice -->
+        <div class="pt-3 border-t border-brand-border mt-3 text-center">
+          <p class="text-[11px] text-brand-ink-muted leading-tight">
+            Gunakan alamat resmi SALAM dan jangan bagikan password ke siapa pun.
+          </p>
+        </div>
+      </form>
+    </div>
+
+    <!-- Collapsible Section: Bantuan dan Dokumen -->
+    <details class="mt-4 bg-brand-card rounded-[10px] border border-brand-border p-3.5 group">
+      <summary class="flex items-center justify-between cursor-pointer list-none text-xs font-semibold text-brand-ink select-none">
+        <span class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-brand-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+          </svg>
+          Bantuan dan dokumen
+        </span>
+        <svg class="w-4 h-4 text-brand-ink-muted transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </summary>
+      
+      <div class="mt-3 pt-2.5 border-t border-brand-border space-y-2 text-xs">
+        <a href="#" class="text-brand-ink hover:text-brand-primary block py-1">
+          Dosen masuk dengan akun SIP
+        </a>
+        <a href="#" class="text-brand-ink hover:text-brand-primary block py-1">
+          Pedoman MBKM
+        </a>
+        <a href="#" class="text-brand-ink hover:text-brand-primary block py-1">
+          Pedoman Akademik
+        </a>
+        <a href="#" class="text-brand-ink hover:text-brand-primary block py-1">
+          Panduan Karya Tulis Ilmiah
+        </a>
+        <a href="#" class="text-brand-ink hover:text-brand-primary block py-1">
+          Renstra UIN SGD Bandung 2024-2029
+        </a>
+      </div>
+    </details>
+
+  </main>
+
+  <!-- Mobile Footer -->
+  <footer class="py-3 px-4 text-center text-[11px] text-brand-ink-muted border-t border-brand-border/60 bg-brand-bg">
+    <p>© 2026 UIN Sunan Gunung Djati Bandung</p>
+  </footer>
+
+
+
+</body></html>
