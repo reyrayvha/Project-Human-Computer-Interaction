@@ -183,7 +183,7 @@ export const Absensi = () => {
           <div>
             <h2 className="text-[20px] font-bold text-ink">Kuliah Berikutnya</h2>
             <p className="text-[14px] text-ink-muted mt-1">
-              Kamis, 07.00 WIB: <strong className="text-ink">Jaringan Komputer</strong> di Ruang R.4.10 (Budi Santoso, S.T., M.Cs.)
+              Kamis, 07.00 WIB: <strong className="text-ink">Jaringan Komputer</strong> di Ruang R.4.10 (Cecep Nurul Alam M.T.)
             </p>
           </div>
 

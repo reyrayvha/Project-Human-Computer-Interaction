@@ -574,7 +574,7 @@ export const Dashboard = () => {
                         <span>(Ruang R.4.10)</span>
                       </div>
                       <p className="text-[14px] font-semibold text-ink truncate mt-0.5">Jaringan Komputer</p>
-                      <p className="text-[12px] text-ink-muted truncate">Budi Santoso, S.T., M.Cs.</p>
+                      <p className="text-[12px] text-ink-muted truncate">Cecep Nurul Alam M.T.</p>
                     </div>
                     <span className="shrink-0 inline-flex items-center gap-1 px-2 py-1 rounded bg-card border border-border text-ink-muted text-[11px] font-medium">
                       <span className="material-symbols-outlined text-[13px]">schedule</span>
@@ -591,7 +591,7 @@ export const Dashboard = () => {
                       <p className="text-[14px] font-semibold text-ink truncate mt-0.5">
                         Pengembangan Aplikasi Mobile
                       </p>
-                      <p className="text-[12px] text-ink-muted truncate">Dewi Anggraeni, M.T.</p>
+                      <p className="text-[12px] text-ink-muted truncate">H. Aldy Rialdy Atmadja M.T</p>
                     </div>
                     <span className="shrink-0 inline-flex items-center gap-1 px-2 py-1 rounded bg-card border border-border text-ink-muted text-[11px] font-medium">
                       <span className="material-symbols-outlined text-[13px]">schedule</span>

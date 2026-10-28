@@ -143,7 +143,7 @@ export const RiwayatAbsensiDetail = () => {
 
             <p className="text-[13px] text-ink-muted mt-1 leading-normal">
               Kelas B • Ruang R.4.10 • Kamis, 07.00 – 09.30 WIB • Dosen Pengampu:{' '}
-              <strong className="text-ink font-semibold">Agus Prasetyo, M.T.</strong>
+              <strong className="text-ink font-semibold">Cecep Nurul Alam M.T.</strong>
             </p>
 
             {/* Attendance Counters Strip */}

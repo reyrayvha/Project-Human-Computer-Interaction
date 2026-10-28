@@ -90,7 +90,7 @@ export const KoreksiPresensiModal = () => {
 
           <div>
             <label className="block text-[13px] font-semibold text-ink mb-1">
-              Catatan untuk Dosen Pengampu (Budi Santoso, S.T., M.Cs.)
+              Catatan untuk Dosen Pengampu (Cecep Nurul Alam M.T.)
             </label>
             <textarea
               rows={3}

@@ -263,7 +263,7 @@ export const QrScannerModal = () => {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-ink-muted">Dosen Pengampu:</span>
-                  <span className="text-ink font-medium">Dr. Rina Kusumawardani, M.Kom.</span>
+                  <span className="text-ink font-medium">Dr. Cepy Slamet S.T., M.Kom.</span>
                 </div>
               </div>
 

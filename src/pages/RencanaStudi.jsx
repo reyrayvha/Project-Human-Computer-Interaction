@@ -14,10 +14,45 @@ export const RencanaStudi = () => {
 
   const [searchQuery, setSearchQuery] = useState('');
   const [showPrintModal, setShowPrintModal] = useState(false);
+  const [sortKey, setSortKey] = useState(null);
+  const [sortDir, setSortDir] = useState('asc');
+
+  const handleSort = (key) => {
+    if (sortKey === key) {
+      if (sortDir === 'asc') setSortDir('desc');
+      else {
+        setSortKey(null);
+        setSortDir('asc');
+      }
+    } else {
+      setSortKey(key);
+      setSortDir('asc');
+    }
+  };
 
   // Filter courses by search
   const filteredCourses = courses.filter((c) =>
-    `${c.name} ${c.lecturer} ${c.code} ${c.room}`.toLowerCase().includes(searchQuery.toLowerCase())
+    `${c.name} ${c.lecturer} ${c.code} ${c.room} ${c.fullTitle || ''}`.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const displayCourses = [...filteredCourses].sort((a, b) => {
+    if (!sortKey) return 0;
+    let aVal = a[sortKey];
+    let bVal = b[sortKey];
+    if (sortKey === 'no') {
+      aVal = courses.indexOf(a);
+      bVal = courses.indexOf(b);
+    }
+    if (typeof aVal === 'string') {
+      return sortDir === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+    }
+    return sortDir === 'asc' ? aVal - bVal : bVal - aVal;
+  });
+
+  const SortIcon = () => (
+    <svg className="w-3.5 h-3.5 text-ink-muted/50 shrink-0 inline-block" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 4l-4 5h8l-4-5zm0 16l4-5H8l4 5z" />
+    </svg>
   );
 
   // Days for weekly view
@@ -230,102 +265,249 @@ export const RencanaStudi = () => {
 
       {/* 6. Content Views */}
       {krsViewMode === 'table' ? (
-        /* TABLE VIEW */
+        /* TABLE VIEW MATCHING SALAM PORTAL DESIGN */
         <div className="bg-card border border-border rounded-xl shadow-sm overflow-hidden card-interactive">
           <div className="overflow-x-auto">
             <table className="w-full text-[13px] text-left border-collapse">
-              <thead className="bg-bg text-ink-muted text-[12px] font-bold uppercase tracking-wider border-b border-border sticky top-0">
-                <tr>
-                  <th className="py-3 px-4 text-center w-12">No</th>
-                  <th className="py-3 px-4">Mata Kuliah & Kode</th>
-                  <th className="py-3 px-3 text-center">Kelas</th>
-                  <th className="py-3 px-3 text-center">SKS</th>
-                  <th className="py-3 px-4">Hari & Jam</th>
-                  <th className="py-3 px-4">Ruang</th>
-                  <th className="py-3 px-4">Dosen Pengampu</th>
+              <thead className="bg-bg text-ink text-[12px] font-bold border-b border-border sticky top-0">
+                <tr className="border-b border-border/70">
+                  <th
+                    rowSpan={2}
+                    onClick={() => handleSort('no')}
+                    className="py-2.5 px-3 text-center w-12 cursor-pointer hover:bg-black/5 transition-colors select-none"
+                    title="Urutkan berdasarkan nomor"
+                  >
+                    <div className="flex items-center justify-center gap-1">
+                      <span>No</span>
+                      <SortIcon />
+                    </div>
+                  </th>
+                  <th
+                    rowSpan={2}
+                    onClick={() => handleSort('name')}
+                    className="py-2.5 px-4 text-left cursor-pointer hover:bg-black/5 transition-colors select-none min-w-[320px]"
+                    title="Urutkan berdasarkan mata kuliah"
+                  >
+                    <div className="flex items-center justify-between gap-1">
+                      <span>Matakuliah</span>
+                      <SortIcon />
+                    </div>
+                  </th>
+                  <th
+                    rowSpan={2}
+                    onClick={() => handleSort('class')}
+                    className="py-2.5 px-3 text-center w-16 cursor-pointer hover:bg-black/5 transition-colors select-none"
+                    title="Urutkan berdasarkan kelas"
+                  >
+                    <div className="flex items-center justify-center gap-1">
+                      <span>Kelas</span>
+                      <SortIcon />
+                    </div>
+                  </th>
+                  <th
+                    rowSpan={2}
+                    onClick={() => handleSort('sks')}
+                    className="py-2.5 px-3 text-center w-16 cursor-pointer hover:bg-black/5 transition-colors select-none"
+                    title="Urutkan berdasarkan SKS"
+                  >
+                    <div className="flex items-center justify-center gap-1">
+                      <span>SKS</span>
+                      <SortIcon />
+                    </div>
+                  </th>
+                  <th colSpan={4} className="py-2 px-3 text-center font-bold border-b border-border text-ink">
+                    Jadwal
+                  </th>
+                  <th rowSpan={2} className="py-2.5 px-3 text-center w-10 text-ink">
+                    #
+                  </th>
+                </tr>
+                <tr className="border-b border-border">
+                  <th
+                    onClick={() => handleSort('room')}
+                    className="py-2 px-3 text-left cursor-pointer hover:bg-black/5 transition-colors select-none min-w-[100px]"
+                    title="Urutkan berdasarkan ruang"
+                  >
+                    <div className="flex items-center justify-between gap-1">
+                      <span>Ruang</span>
+                      <SortIcon />
+                    </div>
+                  </th>
+                  <th
+                    onClick={() => handleSort('day')}
+                    className="py-2 px-3 text-left cursor-pointer hover:bg-black/5 transition-colors select-none min-w-[90px]"
+                    title="Urutkan berdasarkan hari"
+                  >
+                    <div className="flex items-center justify-between gap-1">
+                      <span>Hari</span>
+                      <SortIcon />
+                    </div>
+                  </th>
+                  <th
+                    onClick={() => handleSort('time')}
+                    className="py-2 px-3 text-left cursor-pointer hover:bg-black/5 transition-colors select-none min-w-[160px]"
+                    title="Urutkan berdasarkan waktu"
+                  >
+                    <div className="flex items-center justify-between gap-1">
+                      <span>Waktu</span>
+                      <SortIcon />
+                    </div>
+                  </th>
+                  <th
+                    onClick={() => handleSort('lecturer')}
+                    className="py-2 px-4 text-left cursor-pointer hover:bg-black/5 transition-colors select-none min-w-[260px]"
+                    title="Urutkan berdasarkan dosen"
+                  >
+                    <div className="flex items-center justify-between gap-1">
+                      <span>Dosen</span>
+                      <SortIcon />
+                    </div>
+                  </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-border/60">
-                {filteredCourses.map((c, index) => (
-                  <tr key={c.id} className="hover:bg-primary-tint/15 transition-colors">
-                    <td className="py-3.5 px-4 text-center text-ink-muted font-mono">{index + 1}</td>
-                    <td className="py-3.5 px-4">
-                      <p className="font-bold text-ink leading-tight">{c.name}</p>
-                      <span className="font-mono text-[11px] text-ink-muted">{c.code}</span>
+              <tbody className="divide-y divide-border/60 text-[13px]">
+                {displayCourses.map((c, index) => (
+                  <tr key={c.id} className="hover:bg-primary-tint/10 transition-colors">
+                    <td className="py-3 px-3 text-center text-ink font-normal">{index + 1}</td>
+                    <td className="py-3 px-4 text-ink font-normal leading-snug">
+                      {c.fullTitle || `${c.code} - ${c.name} - ${c.semesterLabel || 'SMT 5'}`}
                     </td>
-                    <td className="py-3.5 px-3 text-center">
-                      <span className="px-2 py-0.5 rounded bg-bg border border-border font-bold">
-                        {c.class}
-                      </span>
+                    <td className="py-3 px-3 text-center text-ink font-normal">
+                      {c.class}
                     </td>
-                    <td className="py-3.5 px-3 text-center font-bold font-mono text-primary">
+                    <td className="py-3 px-3 text-center text-ink font-normal">
                       {c.sks}
                     </td>
-                    <td className="py-3.5 px-4">
-                      <p className="font-medium text-ink">{c.day}</p>
-                      <p className="text-[12px] text-ink-muted font-mono">{c.timeStart} – {c.timeEnd}</p>
+                    <td className="py-3 px-3 text-ink font-normal">
+                      {c.room}
                     </td>
-                    <td className="py-3.5 px-4">
-                      <span className="px-2 py-1 rounded bg-bg text-ink font-mono text-[12px]">
-                        {c.room}
-                      </span>
+                    <td className="py-3 px-3 text-ink font-normal">
+                      {c.day}
                     </td>
-                    <td className="py-3.5 px-4 text-ink font-medium">{c.lecturer}</td>
+                    <td className="py-3 px-3 text-ink font-normal whitespace-nowrap text-[12px]">
+                      {c.time}
+                    </td>
+                    <td className="py-3 px-4 text-ink font-normal">
+                      - {c.lecturer}
+                    </td>
+                    <td className="py-3 px-3 text-center text-ink-muted"></td>
                   </tr>
                 ))}
               </tbody>
-              <tfoot className="bg-bg border-t border-border font-semibold text-[13px]">
-                <tr>
-                  <td colSpan={3} className="py-3 px-4 text-right">Total SKS Diambil:</td>
-                  <td className="py-3 px-3 text-center font-mono text-[15px] text-primary font-bold">23</td>
-                  <td colSpan={3} className="py-3 px-4 text-ink-muted text-[12px]">
-                    Memenuhi batas beban SKS (Maksimal 24 SKS)
+              <tfoot className="border-t border-border">
+                <tr className="bg-bg/20">
+                  <td colSpan={3} className="py-3 px-3 text-right">
+                    <span className="inline-flex items-center px-4 py-1.5 rounded bg-[#00acc1] text-white font-bold text-[13px] shadow-xs">
+                      Jumlah SKS Diambil
+                    </span>
                   </td>
+                  <td className="py-3 px-3 text-center">
+                    <span className="inline-flex items-center justify-center min-w-[36px] px-2.5 py-1.5 rounded bg-[#00acc1] text-white font-bold text-[14px] shadow-xs">
+                      {student.sksSemesterIni}
+                    </span>
+                  </td>
+                  <td colSpan={5}></td>
                 </tr>
               </tfoot>
             </table>
           </div>
+
+          {/* Keterangan Jatah SKS & Status IRS (Underneath table as shown in screenshot) */}
+          <div className="p-4 bg-card border-t border-border flex flex-wrap items-center gap-x-6 gap-y-2.5 text-[13px]">
+            <div className="flex items-center gap-2">
+              <span className="font-bold text-ink">Jatah SKS</span>
+              <span className="px-2.5 py-0.5 rounded bg-[#00acc1] text-white font-bold text-[13px] shadow-xs">
+                {student.sksJatah}
+              </span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="font-bold text-ink">Sisa Jatah SKS</span>
+              <span className="px-2.5 py-0.5 rounded bg-[#e53935] text-white font-bold text-[13px] shadow-xs">
+                {student.sksSisa}
+              </span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="font-bold text-ink">STATUS IRS</span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#10b981] text-white font-bold text-[12px] shadow-xs">
+                <span className="material-symbols-outlined text-[15px]">check</span>
+                <span>{student.statusIrs || 'Sudah Disetujui Dosen Wali'}</span>
+              </span>
+            </div>
+          </div>
         </div>
       ) : (
         /* WEEKLY SCHEDULE GRID (Senin to Jumat) */
-        <div className="bg-card border border-border rounded-xl shadow-sm p-4 overflow-x-auto card-interactive">
-          <div className="min-w-[800px] grid grid-cols-5 gap-3">
-            {days.map((day) => {
-              const dayCourses = courses.filter((c) => c.day === day);
-              return (
-                <div key={day} className="flex flex-col gap-2.5">
-                  <div className="p-2.5 bg-bg rounded-lg text-center border border-border font-bold text-[14px] text-ink">
-                    {day}
-                  </div>
+        <div className="flex flex-col gap-4">
+          <div className="bg-card border border-border rounded-xl shadow-sm p-4 overflow-x-auto card-interactive">
+            <div className="min-w-[800px] grid grid-cols-5 gap-3">
+              {days.map((day) => {
+                const dayCourses = courses.filter((c) => c.day === day);
+                return (
+                  <div key={day} className="flex flex-col gap-2.5">
+                    <div className="p-2.5 bg-bg rounded-lg text-center border border-border font-bold text-[14px] text-ink">
+                      {day}
+                    </div>
 
-                  <div className="flex flex-col gap-2 min-h-[300px]">
-                    {dayCourses.length === 0 ? (
-                      <div className="flex-1 flex items-center justify-center p-4 border border-dashed border-border rounded-lg text-center text-ink-muted text-[12px]">
-                        Tidak ada kelas
-                      </div>
-                    ) : (
-                      dayCourses.map((c) => (
-                        <div
-                          key={c.id}
-                          className="p-3 bg-card border border-border hover:border-primary rounded-lg shadow-sm flex flex-col gap-1.5 item-interactive cursor-pointer"
-                        >
-                          <div className="flex items-center justify-between text-[11px]">
-                            <span className="font-mono font-bold text-primary">{c.timeStart} - {c.timeEnd}</span>
-                            <span className="px-1.5 py-0.2 rounded bg-bg font-mono">{c.room}</span>
-                          </div>
-                          <p className="font-bold text-[13px] text-ink leading-tight">{c.name}</p>
-                          <p className="text-[11px] text-ink-muted truncate">{c.lecturer}</p>
-                          <div className="flex items-center justify-between pt-1 border-t border-border/60 text-[11px]">
-                            <span className="font-medium text-ink-muted">Kelas {c.class}</span>
-                            <span className="font-bold text-primary">{c.sks} SKS</span>
-                          </div>
+                    <div className="flex flex-col gap-2 min-h-[300px]">
+                      {dayCourses.length === 0 ? (
+                        <div className="flex-1 flex items-center justify-center p-4 border border-dashed border-border rounded-lg text-center text-ink-muted text-[12px]">
+                          Tidak ada kelas
                         </div>
-                      ))
-                    )}
+                      ) : (
+                        dayCourses.map((c) => (
+                          <div
+                            key={c.id}
+                            className="p-3 bg-card border border-border hover:border-primary rounded-lg shadow-sm flex flex-col gap-1.5 item-interactive cursor-pointer"
+                          >
+                            <div className="flex items-center justify-between text-[11px]">
+                              <span className="font-mono font-bold text-primary">{c.timeStart} - {c.timeEnd}</span>
+                              <span className="px-1.5 py-0.2 rounded bg-bg font-mono">{c.room}</span>
+                            </div>
+                            <p className="font-bold text-[13px] text-ink leading-tight">{c.name}</p>
+                            <p className="text-[11px] text-ink-muted truncate">- {c.lecturer}</p>
+                            <div className="flex items-center justify-between pt-1 border-t border-border/60 text-[11px]">
+                              <span className="font-medium text-ink-muted">Kelas {c.class}</span>
+                              <span className="font-bold text-primary">{c.sks} SKS</span>
+                            </div>
+                          </div>
+                        ))
+                      )}
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
+          </div>
+
+          {/* SKS & IRS Status Bar in Weekly View */}
+          <div className="p-4 bg-card border border-border rounded-xl shadow-sm flex flex-wrap items-center gap-x-6 gap-y-2.5 text-[13px]">
+            <div className="flex items-center gap-2">
+              <span className="font-bold text-ink">Jumlah SKS Diambil</span>
+              <span className="px-2.5 py-0.5 rounded bg-[#00acc1] text-white font-bold text-[13px] shadow-xs">
+                {student.sksSemesterIni}
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="font-bold text-ink">Jatah SKS</span>
+              <span className="px-2.5 py-0.5 rounded bg-[#00acc1] text-white font-bold text-[13px] shadow-xs">
+                {student.sksJatah}
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="font-bold text-ink">Sisa Jatah SKS</span>
+              <span className="px-2.5 py-0.5 rounded bg-[#e53935] text-white font-bold text-[13px] shadow-xs">
+                {student.sksSisa}
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="font-bold text-ink">STATUS IRS</span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#10b981] text-white font-bold text-[12px] shadow-xs">
+                <span className="material-symbols-outlined text-[15px]">check</span>
+                <span>{student.statusIrs || 'Sudah Disetujui Dosen Wali'}</span>
+              </span>
+            </div>
           </div>
         </div>
       )}
