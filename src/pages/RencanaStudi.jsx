@@ -71,19 +71,16 @@ export const RencanaStudi = () => {
       {/* 1. Header with Title & Cetak KRS Button */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-[24px] sm:text-[28px] font-bold text-ink tracking-tight">
+          <h1 className="text-[22px] sm:text-[24px] font-bold text-ink tracking-tight">
             Rencana Studi (KRS)
           </h1>
-          <p className="text-[13px] text-ink-muted mt-0.5">
-            Daftar kartu rencana studi semester 5 (2026/2027 Ganjil) yang telah divalidasi
-          </p>
         </div>
 
         <div className="flex items-center gap-2">
           <button
             type="button"
             onClick={() => setShowPrintModal(true)}
-            className="h-10 px-5 rounded-lg bg-primary hover:bg-primary-hover text-white text-[14px] font-semibold transition-colors flex items-center gap-2 shadow-sm"
+            className="h-9 px-4 rounded-lg bg-primary hover:bg-primary-hover text-white text-[13px] font-semibold transition-colors flex items-center gap-2 shadow-xs cursor-pointer"
           >
             <span className="material-symbols-outlined text-[18px]">print</span>
             <span>Cetak KRS</span>
@@ -97,9 +94,9 @@ export const RencanaStudi = () => {
           <div className="flex items-center gap-3">
             <div className="w-5 h-5 border-2 border-info border-t-transparent rounded-full animate-spin"></div>
             <div>
-              <p className="text-[14px] font-bold text-ink">Sedang Menyimpan Rencana Studi ke Server...</p>
+              <p className="text-[14px] font-bold text-ink">Menyimpan Rencana Studi ke Server...</p>
               <p className="text-[12px] text-ink-muted">
-                Mohon jangan menutup atau memuat ulang halaman saat transaksi KRS berlangsung.
+                Jangan menutup halaman saat transaksi berlangsung.
               </p>
             </div>
           </div>
@@ -111,18 +108,18 @@ export const RencanaStudi = () => {
           <div className="flex items-center gap-3">
             <span className="material-symbols-outlined text-warning text-[24px]">cloud_sync</span>
             <div>
-              <p className="text-[14px] font-bold text-ink">Koneksi Timeout: Pilihan Tersimpan di Cache Browser</p>
+              <p className="text-[14px] font-bold text-ink">Koneksi Timeout: Pilihan Tersimpan di Cache</p>
               <p className="text-[12px] text-ink-muted">
-                Server sedang mengalami antrean tinggi. Mata kuliah pilihan kamu aman tersimpan di perangkat dan akan dikirim otomatis saat lalu lintas lancar.
+                Mata kuliah tersimpan di browser dan akan disinkronkan otomatis saat server normal.
               </p>
             </div>
           </div>
           <button
             type="button"
             onClick={handleSimpanKRS}
-            className="px-4 py-2 rounded-lg bg-primary text-white text-[12px] font-bold hover:bg-primary-hover shrink-0"
+            className="px-4 py-2 rounded-lg bg-primary text-white text-[12px] font-bold hover:bg-primary-hover shrink-0 cursor-pointer"
           >
-            Kirim Ulang Sekarang
+            Kirim Ulang
           </button>
         </div>
       )}
@@ -395,14 +392,14 @@ export const RencanaStudi = () => {
                 ))}
               </tbody>
               <tfoot className="border-t border-border">
-                <tr className="bg-bg/20">
+                <tr className="bg-bg/40">
                   <td colSpan={3} className="py-3 px-3 text-right">
-                    <span className="inline-flex items-center px-4 py-1.5 rounded bg-[#00acc1] text-white font-bold text-[13px] shadow-xs">
+                    <span className="inline-flex items-center px-3.5 py-1 rounded-md bg-primary-tint text-primary font-bold text-[13px] border border-primary/20">
                       Jumlah SKS Diambil
                     </span>
                   </td>
                   <td className="py-3 px-3 text-center">
-                    <span className="inline-flex items-center justify-center min-w-[36px] px-2.5 py-1.5 rounded bg-[#00acc1] text-white font-bold text-[14px] shadow-xs">
+                    <span className="inline-flex items-center justify-center min-w-[36px] px-2.5 py-1 rounded-md bg-primary text-white font-bold font-mono text-[14px]">
                       {student.sksSemesterIni}
                     </span>
                   </td>
@@ -412,26 +409,26 @@ export const RencanaStudi = () => {
             </table>
           </div>
 
-          {/* Keterangan Jatah SKS & Status IRS (Underneath table as shown in screenshot) */}
+          {/* Keterangan Jatah SKS & Status IRS */}
           <div className="p-4 bg-card border-t border-border flex flex-wrap items-center gap-x-6 gap-y-2.5 text-[13px]">
             <div className="flex items-center gap-2">
-              <span className="font-bold text-ink">Jatah SKS</span>
-              <span className="px-2.5 py-0.5 rounded bg-[#00acc1] text-white font-bold text-[13px] shadow-xs">
-                {student.sksJatah}
+              <span className="font-semibold text-ink">Jatah SKS:</span>
+              <span className="px-2.5 py-0.5 rounded-md bg-primary-tint text-primary font-bold font-mono text-[13px] border border-primary/20">
+                {student.sksJatah} SKS
               </span>
             </div>
 
             <div className="flex items-center gap-2">
-              <span className="font-bold text-ink">Sisa Jatah SKS</span>
-              <span className="px-2.5 py-0.5 rounded bg-[#e53935] text-white font-bold text-[13px] shadow-xs">
-                {student.sksSisa}
+              <span className="font-semibold text-ink">Sisa Kuota:</span>
+              <span className="px-2.5 py-0.5 rounded-md bg-card border border-border text-ink font-bold font-mono text-[13px]">
+                {student.sksSisa} SKS
               </span>
             </div>
 
             <div className="flex items-center gap-2">
-              <span className="font-bold text-ink">STATUS IRS</span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#10b981] text-white font-bold text-[12px] shadow-xs">
-                <span className="material-symbols-outlined text-[15px]">check</span>
+              <span className="font-semibold text-ink">Status IRS:</span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-success-tint text-success font-bold text-[12px] border border-success/30">
+                <span className="material-symbols-outlined text-[15px]">verified</span>
                 <span>{student.statusIrs || 'Sudah Disetujui Dosen Wali'}</span>
               </span>
             </div>
@@ -484,27 +481,27 @@ export const RencanaStudi = () => {
           {/* SKS & IRS Status Bar in Weekly View */}
           <div className="p-4 bg-card border border-border rounded-xl shadow-sm flex flex-wrap items-center gap-x-6 gap-y-2.5 text-[13px]">
             <div className="flex items-center gap-2">
-              <span className="font-bold text-ink">Jumlah SKS Diambil</span>
-              <span className="px-2.5 py-0.5 rounded bg-[#00acc1] text-white font-bold text-[13px] shadow-xs">
-                {student.sksSemesterIni}
+              <span className="font-semibold text-ink">Jumlah SKS Diambil:</span>
+              <span className="px-2.5 py-0.5 rounded-md bg-primary text-white font-bold font-mono text-[13px]">
+                {student.sksSemesterIni} SKS
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="font-bold text-ink">Jatah SKS</span>
-              <span className="px-2.5 py-0.5 rounded bg-[#00acc1] text-white font-bold text-[13px] shadow-xs">
-                {student.sksJatah}
+              <span className="font-semibold text-ink">Jatah SKS:</span>
+              <span className="px-2.5 py-0.5 rounded-md bg-primary-tint text-primary font-bold font-mono text-[13px] border border-primary/20">
+                {student.sksJatah} SKS
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="font-bold text-ink">Sisa Jatah SKS</span>
-              <span className="px-2.5 py-0.5 rounded bg-[#e53935] text-white font-bold text-[13px] shadow-xs">
-                {student.sksSisa}
+              <span className="font-semibold text-ink">Sisa Kuota:</span>
+              <span className="px-2.5 py-0.5 rounded-md bg-card border border-border text-ink font-bold font-mono text-[13px]">
+                {student.sksSisa} SKS
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="font-bold text-ink">STATUS IRS</span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#10b981] text-white font-bold text-[12px] shadow-xs">
-                <span className="material-symbols-outlined text-[15px]">check</span>
+              <span className="font-semibold text-ink">Status IRS:</span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-success-tint text-success font-bold text-[12px] border border-success/30">
+                <span className="material-symbols-outlined text-[15px]">verified</span>
                 <span>{student.statusIrs || 'Sudah Disetujui Dosen Wali'}</span>
               </span>
             </div>

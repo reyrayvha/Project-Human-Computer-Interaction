@@ -113,7 +113,7 @@ export const RiwayatAbsensiDetail = () => {
           className="inline-flex items-center gap-2 text-[13px] font-semibold text-ink-muted hover:text-ink transition-colors cursor-pointer"
         >
           <span className="material-symbols-outlined text-[18px]">arrow_back</span>
-          <span>Kembali ke Absensi Kuliah</span>
+          <span>Kembali ke Absensi</span>
         </button>
 
         <div className="px-3 py-1 rounded-full border border-border bg-card text-[12px] text-ink font-medium flex items-center gap-1.5 shadow-xs">
@@ -137,7 +137,7 @@ export const RiwayatAbsensiDetail = () => {
               </span>
             </div>
 
-            <h1 className="text-[24px] sm:text-[28px] font-bold text-ink tracking-tight">
+            <h1 className="text-[22px] sm:text-[24px] font-bold text-ink tracking-tight">
               Jaringan Komputer
             </h1>
 
@@ -256,11 +256,8 @@ export const RiwayatAbsensiDetail = () => {
             <div className="p-4 sm:px-6 sm:py-4 border-b border-border flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-card">
               <div>
                 <h3 className="font-bold text-[16px] text-ink">
-                  Daftar Pertemuan Kuliah
+                  Daftar Pertemuan
                 </h3>
-                <p className="text-[12px] text-ink-muted mt-0.5">
-                  Rincian status kehadiran per sesi pertemuan tatap muka semester berjalan
-                </p>
               </div>
 
               {/* Segmented Filter Pills */}
@@ -530,7 +527,7 @@ export const RiwayatAbsensiDetail = () => {
                   verified_user
                 </span>
                 <p>
-                  Dosen pengampu (<strong className="text-ink">Agus Prasetyo, M.T.</strong>) akan
+                  Dosen pengampu (<strong className="text-ink">Cecep Nurul Alam M.T.</strong>) akan
                   memeriksa dan memverifikasi pengajuanmu.
                 </p>
               </div>
@@ -538,7 +535,7 @@ export const RiwayatAbsensiDetail = () => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full py-2.5 rounded-lg bg-[#2F6016] hover:bg-[#254C11] text-white font-bold text-[13px] flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-sm"
+                className="w-full py-2.5 rounded-lg bg-primary hover:bg-primary-hover text-white font-bold text-[13px] flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-sm"
               >
                 <span className="material-symbols-outlined text-[18px]">send</span>
                 <span>Kirim Pengajuan Koreksi</span>

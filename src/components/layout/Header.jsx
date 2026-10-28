@@ -31,9 +31,9 @@ export const Header = () => {
       case 'krs':
         return 'Perkuliahan > Rencana Studi';
       case 'keuangan':
-        return 'Keuangan > Tagihan Ukt';
+        return 'Keuangan > Tagihan UKT';
       case 'kelulusan':
-        return 'Perkuliahan > Kelulusan';
+        return 'Perkuliahan > Kelulusan & Yudisium';
       case 'khs':
         return 'Hasil Studi > Kartu Hasil Studi (KHS)';
       case 'transkrip':
@@ -41,9 +41,9 @@ export const Header = () => {
       case 'bimbingan':
         return 'Bimbingan Skripsi / Tesis / Disertasi';
       case 'pendaftaran':
-        return 'Layanan > Pendaftaran';
+        return 'Layanan > Pendaftaran KKN & PPL';
       case 'wisuda':
-        return 'Layanan > Wisuda';
+        return 'Layanan > Pendaftaran Wisuda';
       case 'cetak-ktm':
         return 'Layanan > Cetak KTM Digital';
       case 'akun':

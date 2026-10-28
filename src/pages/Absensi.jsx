@@ -51,26 +51,23 @@ export const Absensi = () => {
   return (
     <div className="max-w-[1200px] mx-auto p-4 md:p-6 flex flex-col gap-6 animate-fade-in">
       {/* 1. Header Area */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
         <div>
-          <h1 className="text-[24px] sm:text-[28px] font-bold text-ink tracking-tight">
+          <h1 className="text-[22px] sm:text-[24px] font-bold text-ink tracking-tight">
             Absensi Kuliah
           </h1>
-          <p className="text-[13px] text-ink-muted mt-0.5">
-            Pindai QR dosen untuk presensi atau pantau rekapitulasi kehadiran semester aktif
-          </p>
         </div>
         <div className="flex items-center">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-card border border-border text-ink-muted text-[12px] font-semibold shadow-sm">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-card border border-border text-ink-muted text-[12px] font-semibold shadow-xs">
             <span className="w-2 h-2 rounded-full bg-leaf"></span>
-            <span>Semester 20261 (Ganjil)</span>
+            <span>Semester Ganjil 2026/2027</span>
           </div>
         </div>
       </div>
 
       {/* 2. Top Card: Sesi Absen (Active vs Inactive) */}
       {isSessionActive ? (
-        <div className="w-full bg-card border border-border rounded-xl p-5 sm:p-6 flex flex-col gap-4 shadow-sm relative overflow-hidden card-interactive">
+        <div className="w-full bg-card border border-border rounded-xl p-5 sm:p-6 flex flex-col gap-3.5 shadow-xs relative overflow-hidden card-interactive">
           {/* Decorative faint tone line */}
           <div className="absolute top-0 left-0 right-0 h-1 bg-leaf"></div>
 
@@ -85,7 +82,7 @@ export const Absensi = () => {
                 <span>Sesi Berlangsung</span>
               </span>
               <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-warning-tint text-warning text-[12px] font-semibold">
-                <span className="material-symbols-outlined text-[16px]">schedule</span>
+                <span className="material-symbols-outlined text-[15px]">schedule</span>
                 <span>Ditutup 14 menit lagi</span>
               </span>
             </div>
@@ -105,68 +102,42 @@ export const Absensi = () => {
 
           {/* Main Course Info */}
           <div>
-            <h2 className="text-[20px] sm:text-[24px] font-bold text-ink leading-tight">
+            <h2 className="text-[18px] sm:text-[20px] font-bold text-ink leading-tight">
               {activeCourse.name}
             </h2>
-            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mt-1.5 text-[13px] text-ink-muted">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mt-1 text-[13px] text-ink-muted">
               <span>Kelas {activeCourse.class}</span>
               <span className="text-border">•</span>
               <span>Ruang {activeCourse.room}</span>
               <span className="text-border">•</span>
               <span>Dosen: {activeCourse.lecturer}</span>
               <span className="text-border">•</span>
-              <span className="text-ink font-semibold">Hari ini, Rabu 09.30 – 12.00 WIB</span>
+              <span className="text-ink font-semibold">Rabu 09.30 – 12.00 WIB</span>
             </div>
           </div>
 
-          {/* Action Buttons */}
-          <div className="flex flex-wrap items-center gap-3 pt-1">
+          {/* Action Buttons (Clean & Proportional) */}
+          <div className="flex flex-wrap items-center gap-2.5 pt-1">
             <button
               type="button"
               onClick={() => {
                 setQrStep('viewfinder');
                 setQrScannerOpen(true);
               }}
-              className="inline-flex items-center justify-center gap-2.5 h-[52px] px-8 bg-primary hover:bg-primary-hover text-white text-[15px] font-bold rounded-lg transition-colors cursor-pointer shadow-sm"
+              className="inline-flex items-center justify-center gap-2 h-10 px-5 bg-primary hover:bg-primary-hover text-white text-[13px] font-semibold rounded-lg transition-colors cursor-pointer shadow-xs"
             >
-              <span className="material-symbols-outlined text-[24px]">qr_code_scanner</span>
-              <span>Scan QR kehadiran</span>
+              <span className="material-symbols-outlined text-[20px]">qr_code_scanner</span>
+              <span>Scan QR Kehadiran</span>
             </button>
 
             <button
               type="button"
               onClick={openManualCode}
-              className="inline-flex items-center justify-center gap-2 h-[52px] px-6 bg-card hover:bg-bg border border-primary text-primary text-[14px] font-bold rounded-lg transition-colors cursor-pointer"
+              className="inline-flex items-center justify-center gap-1.5 h-10 px-4 bg-card hover:bg-bg border border-border text-ink text-[13px] font-medium rounded-lg transition-colors cursor-pointer"
             >
-              <span className="material-symbols-outlined text-[20px]">keyboard</span>
-              <span>Masukkan kode manual</span>
+              <span className="material-symbols-outlined text-[18px] text-ink-muted">keyboard</span>
+              <span>Kode Manual</span>
             </button>
-          </div>
-
-          {/* 3-Step Instruction Guide */}
-          <div className="w-full bg-bg border border-border rounded-lg p-3 flex flex-wrap items-center gap-4 sm:gap-6 text-ink mt-1">
-            <div className="flex items-center gap-2">
-              <span className="w-5 h-5 rounded-full bg-primary-tint text-primary text-[11px] font-bold flex items-center justify-center">
-                1
-              </span>
-              <span className="text-[12px] font-medium text-ink">Buka kamera</span>
-            </div>
-            <span className="material-symbols-outlined text-ink-muted text-[14px] hidden sm:inline-block">arrow_forward</span>
-
-            <div className="flex items-center gap-2">
-              <span className="w-5 h-5 rounded-full bg-primary-tint text-primary text-[11px] font-bold flex items-center justify-center">
-                2
-              </span>
-              <span className="text-[12px] font-medium text-ink">Arahkan ke QR dosen</span>
-            </div>
-            <span className="material-symbols-outlined text-ink-muted text-[14px] hidden sm:inline-block">arrow_forward</span>
-
-            <div className="flex items-center gap-2">
-              <span className="w-5 h-5 rounded-full bg-primary-tint text-primary text-[11px] font-bold flex items-center justify-center">
-                3
-              </span>
-              <span className="text-[12px] font-medium text-ink">Tunggu tanda hijau terverifikasi</span>
-            </div>
           </div>
         </div>
       ) : (
@@ -286,7 +257,7 @@ export const Absensi = () => {
             <div className="col-span-1 text-center">SKS</div>
             <div className="col-span-2">Jadwal & Ruang</div>
             <div className="col-span-3">Persentase Kehadiran</div>
-            <div className="col-span-2 text-right">Aksi Tindakan</div>
+            <div className="col-span-2 text-right">Aksi</div>
           </div>
 
           {/* Table Rows / Mobile Stacked Cards */}
@@ -346,7 +317,7 @@ export const Absensi = () => {
                       ></div>
                     </div>
 
-                    {/* Clean color indicator without bulky emote pills or verbose explanations */}
+                    {/* Clean color indicator with uniform height for every row */}
                     {isDanger ? (
                       <span className="text-[11px] font-semibold text-danger">
                         Berisiko
@@ -355,45 +326,23 @@ export const Absensi = () => {
                       <span className="text-[11px] font-semibold text-warning">
                         Perlu perhatian
                       </span>
-                    ) : null}
+                    ) : (
+                      <span className="text-[11px] font-semibold text-success">
+                        Aman
+                      </span>
+                    )}
                   </div>
 
-                  {/* Col 5: Actions */}
-                  <div className="lg:col-span-2 flex items-center justify-end pt-2 lg:pt-0 border-t lg:border-t-0 border-border/60">
-                    <div className="w-full max-w-[190px]">
-                      {c.percentage === 100 ? (
-                        /* Kehadiran Penuh: Card/Button Lihat Riwayat dibuat seukuran & selebar 2 pilihan agar pas dan tidak membuang space kosong */
-                        <button
-                          type="button"
-                          onClick={() => setCurrentPage('absensi-jarkom')}
-                          className="w-full h-[40px] px-3 rounded-lg border border-border bg-card hover:bg-bg text-ink text-[12px] font-semibold transition-colors cursor-pointer flex items-center justify-center text-center shadow-xs"
-                        >
-                          Lihat Riwayat
-                        </button>
-                      ) : (
-                        /* Ada Alpa (< 100%): 2 Pilihan (Lihat Riwayat & Ajukan Koreksi) */
-                        <div className="w-full grid grid-cols-2 gap-1.5">
-                          <button
-                            type="button"
-                            onClick={() => setCurrentPage('absensi-jarkom')}
-                            className="h-[40px] px-1 rounded-lg border border-border bg-card hover:bg-bg text-ink text-[12px] font-semibold transition-colors cursor-pointer flex flex-col items-center justify-center text-center leading-tight shadow-xs"
-                          >
-                            <span>Lihat</span>
-                            <span>Riwayat</span>
-                          </button>
-
-                          <button
-                            type="button"
-                            onClick={() => openCorrection(c)}
-                            className="h-[40px] px-1 rounded-lg text-primary hover:bg-primary-tint text-[12px] font-semibold transition-colors cursor-pointer flex flex-col items-center justify-center text-center leading-tight"
-                            title="Ajukan perbaikan data alpa ke dosen"
-                          >
-                            <span>Ajukan</span>
-                            <span>Koreksi</span>
-                          </button>
-                        </div>
-                      )}
-                    </div>
+                  {/* Col 5: Actions - Only History button for stable, symmetrical alignment */}
+                  <div className="lg:col-span-2 flex items-center lg:justify-end pt-2 lg:pt-0 border-t lg:border-t-0 border-border/60">
+                    <button
+                      type="button"
+                      onClick={() => setCurrentPage('absensi-jarkom')}
+                      className="h-8.5 px-3.5 rounded-lg border border-border bg-card hover:bg-bg text-ink text-[12px] font-semibold transition-colors cursor-pointer inline-flex items-center gap-1.5 shadow-xs"
+                    >
+                      <span className="material-symbols-outlined text-[15px] text-ink-muted">history</span>
+                      <span>Riwayat</span>
+                    </button>
                   </div>
                 </div>
               );

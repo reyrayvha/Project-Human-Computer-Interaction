@@ -40,52 +40,38 @@
   -webkit-font-smoothing: antialiased;
 }
 
-/* Elegant Interactive Card Animations - Crisp, Non-Blurry, Smooth */
+/* Refined Institutional Card Styling - Calm, Steady, Grounded */
 .card-interactive {
   position: relative;
-  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.38s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.38s cubic-bezier(0.16, 1, 0.3, 1);
-  /* Integer translate and antialiasing prevent subpixel text blur in Chromium/Windows */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   transform: translateY(0);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
 }
 
 .card-interactive:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 28px -6px rgba(38, 50, 53, 0.08), 0 4px 12px -2px rgba(63, 122, 31, 0.05);
   border-color: rgba(63, 122, 31, 0.35);
+  box-shadow: 0 4px 12px -2px rgba(38, 50, 53, 0.05);
 }
 
-/* Subtle Interactive Lift for List Items and Sub-Cards */
+/* Subtle Hover for List Items and Sub-Cards */
 .item-interactive {
   position: relative;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  transform: translateY(0);
+  transition: border-color 0.18s ease, background-color 0.18s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
 }
 
 .item-interactive:hover {
-  transform: translateY(-2px);
   border-color: rgba(63, 122, 31, 0.30);
-  background-color: #FFFFFF;
-  box-shadow: 0 6px 16px -3px rgba(38, 50, 53, 0.06);
+  background-color: #FAFCF9;
 }
 
-/* Elegant Page & Card Entrance Animations ("muncul tidak langsung") */
+/* Crisp Page & Card Entrance Animations */
 @keyframes elegant-enter {
   0% {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(6px);
   }
   100% {
     opacity: 1;
@@ -94,13 +80,13 @@
 }
 
 .animate-fade-in {
-  animation: elegant-enter 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: elegant-enter 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes card-enter {
   0% {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(8px);
   }
   100% {
     opacity: 1;
@@ -109,7 +95,7 @@
 }
 
 .animate-card-enter {
-  animation: card-enter 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: card-enter 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .card-stagger-1 { animation-delay: 40ms; }

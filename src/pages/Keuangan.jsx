@@ -44,12 +44,9 @@ export const Keuangan = () => {
       {/* 1. Header Section */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-[24px] sm:text-[28px] font-bold text-ink tracking-tight">
-            Tagihan Ukt
+          <h1 className="text-[22px] sm:text-[24px] font-bold text-ink tracking-tight">
+            Tagihan UKT
           </h1>
-          <p className="text-[13px] text-ink-muted mt-0.5">
-            Informasi kewajiban pembayaran Uang Kuliah Tunggal (UKT) dan riwayat transaksi mahasiswa
-          </p>
         </div>
 
         {/* Right Header Actions */}
@@ -239,7 +236,9 @@ export const Keuangan = () => {
                             className="w-4 h-4 rounded bg-primary text-white flex items-center justify-center cursor-pointer mx-auto text-[11px]"
                             title="Pilih semua"
                           >
-                            {selectedBills.length > 0 ? '✓' : ''}
+                            {selectedBills.length > 0 ? (
+                              <span className="material-symbols-outlined text-[12px] leading-none">check</span>
+                            ) : null}
                           </button>
                         </th>
                         <th className="py-3 px-4">Jenis Tagihan</th>
@@ -268,7 +267,9 @@ export const Keuangan = () => {
                                 : 'border border-border bg-card'
                             }`}
                           >
-                            {selectedBills.includes('ukt-sem-5') ? '✓' : ''}
+                            {selectedBills.includes('ukt-sem-5') ? (
+                              <span className="material-symbols-outlined text-[12px] leading-none">check</span>
+                            ) : null}
                           </button>
                         </td>
                         <td className="py-4 px-4">
@@ -332,7 +333,7 @@ export const Keuangan = () => {
                       onClick={() => setShowPaymentModal(true)}
                       className={`px-5 py-2.5 rounded-lg text-white font-bold text-[13px] transition-colors flex items-center gap-2 shadow-sm ${
                         selectedBills.length > 0
-                          ? 'bg-[#2F6016] hover:bg-[#254C11] cursor-pointer'
+                          ? 'bg-primary hover:bg-primary-hover cursor-pointer'
                           : 'bg-border text-ink-muted cursor-not-allowed'
                       }`}
                     >
@@ -507,10 +508,10 @@ export const Keuangan = () => {
           <div className="p-4 sm:p-5 border-b border-border bg-card flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
               <h3 className="font-bold text-[16px] text-ink">
-                Riwayat Transaksi & Bukti Pembayaran Resmi
+                Riwayat Transaksi
               </h3>
               <p className="text-[12px] text-ink-muted mt-0.5">
-                Total {mockPaymentHistory.length} transaksi pembayaran terverifikasi otomatis oleh perbankan mitra
+                {mockPaymentHistory.length} transaksi terverifikasi
               </p>
             </div>
 
@@ -708,8 +709,20 @@ export const Keuangan = () => {
                 </span>
                 <button
                   type="button"
-                  onClick={() => showToast(`Nomor Virtual Account ${selectedBank} disalin ke clipboard`, 'success')}
-                  className="px-2.5 py-1 rounded bg-card border border-border text-[11px] font-bold text-ink hover:bg-bg cursor-pointer"
+                  onClick={() => {
+                    const vaMap = {
+                      BSI: '80011247050001',
+                      Mandiri: '88721247050001',
+                      BRI: '10291247050001',
+                      BTN: '99031247050001',
+                    };
+                    const va = vaMap[selectedBank] || '80011247050001';
+                    if (navigator.clipboard) {
+                      navigator.clipboard.writeText(va).catch(() => {});
+                    }
+                    showToast(`Nomor Virtual Account ${selectedBank} (${va}) disalin`, 'success');
+                  }}
+                  className="px-2.5 py-1 rounded bg-card border border-border text-[11px] font-bold text-ink hover:bg-bg cursor-pointer transition-colors"
                 >
                   Salin
                 </button>

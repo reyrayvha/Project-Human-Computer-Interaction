@@ -73,11 +73,7 @@ export const SystemStatusPopover = () => {
         </div>
 
         {/* Per-service breakdown */}
-        <div className="p-4 flex flex-col gap-3">
-          <p className="text-[12px] text-ink-muted">
-            Transparansi status layanan untuk menjamin kepastian operasional mahasiswa UIN SGD:
-          </p>
-
+        <div className="p-4 flex flex-col gap-2">
           <div className="flex flex-col gap-2.5 divide-y divide-border/60">
             {services.map((svc) => (
               <div key={svc.name} className="pt-2 flex items-center justify-between">
